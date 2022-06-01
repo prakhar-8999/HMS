@@ -1,0 +1,76 @@
+<h1>List of alloted patient ==></h1>
+<br><br>
+
+<p id="allopa" style="text-align: center; font-size: 40px; margin-top: 15%; color: red; display: none;"></p>
+
+
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item" ng-repeat="patient in alloted">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{{$index}}" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        <h2>{{patient.F_Name + " " + patient.L_Name}}</h2>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapse{{$index}}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+
+        <div class="col-sm-12"> 
+          <div class="card">
+            <div class="card-header text-center">
+              <h3>Basic Information</h3>
+            </div>
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 class="alloted-details">Gender : &nbsp&nbsp{{patient.Gend}}</h5><br>
+                  <h5 class="alloted-details">Date Of Birth : &nbsp&nbsp{{patient.dob}}</h5><br>
+                  <h5 class="alloted-details">Username : &nbsp&nbsp{{patient.Usern}}</h5><br>
+                </div>
+                <div class="col-sm-6">
+                  <h5 class="alloted-details">City : &nbsp&nbsp{{patient.city}}</h5><br>
+                  <h5 class="alloted-details">State : &nbsp&nbsp{{patient.state}}</h5><br>
+                  <h5 class="alloted-details">Country : &nbsp&nbsp{{patient.country}}</h5>
+                </div>
+              </div>
+
+              
+            </div>
+            
+          </div>
+          <br>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card mb-3" style="width: 100%;">
+              <div class="card-header text-center">
+                <h4>Contact Info </h4>
+              </div>
+              <div class="card-body">
+                <h5 class="alloted-details"><i class="fa-solid fa-phone"></i><span>&nbsp&nbsp{{patient.M_No}}</span></h5><br>
+                <h5 class="alloted-details"><i class="fa-solid fa-envelope"></i><span>&nbsp&nbsp{{patient.email}}</span></h5><br>
+                <h5 class="alloted-details"><i class="fa-solid fa-address-card"></i><span>&nbsp&nbsp{{patient.address}}</span></h5>
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card mb-3" style="width: 100%;">
+              <div class="card-header text-center">
+                <h4>Health Related Info</h4>
+              </div>
+              <div class="card-body">
+                <h5 class="alloted-details"><span>Height : &nbsp&nbsp{{patient.height}} cm</span></h5><br>
+                <h5 class="alloted-details"><span>Weight : &nbsp&nbsp{{patient.weight}} kg</span></h5><br>
+                <h5 class="alloted-details"><span>Blood Group : &nbsp&nbsp{{patient.blood_group}}</span></h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

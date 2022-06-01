@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo</title>
+    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap-grid.css"> -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAwP/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARAAAAAAAAABEAAAAAAAAAEQAAAAAAAAARAAAAAAAAABEAAAAAAAAAEQAAAAAAAAARAAAAARERERERERERERERERERERAAAAARAAAAAAAAABEAAAAAAAAAEQAAAAAAAAARAAAAAAAAABEAAAAAAAAAEQAAAAAAAAARAAAAD+fwAA/n8AAP5/AAD+fwAA/n8AAP5/AAD+fwAAAAAAAAAAAAD+fwAA/n8AAP5/AAD+fwAA/n8AAP5/AAD+fwAA" rel="icon" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.js" integrity="sha512-klc+qN5PPscoGxSzFpetVsCr9sryi2e2vHwZKq43FdFyhSAa7vAqog/Ifl8tzg/8mBZiG2MAKhyjH5oPJp65EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.js" integrity="sha512-5J08Lq3B2EfuPrNSYckUPHKYHaUhCQ4MdeObdcR0YZnr8eapZ7XMA2ejUyQYpWN+fwO48wuxsL5KDZYIVVVxvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="bootstrap.js"></script> -->
+    <!-- <script src="bootstrap.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="backend.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/e4a93f7f55.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+</head>
+<body ng-app="app">
+    <div class="header-top wow fadeIn" id="head">
+        <div class="">
+            <br><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <center>
+                        <img style="width: 90%;" src="images/logo.png" alt="image">
+                    </center>
+                </div>
+                <div class="col-sm-2 visi">
+                    <div class="icons">
+                        <i class="fa-solid fa-phone fa-3x" style="margin-top: 10px; color: #27a3ff;"></i>
+                    
+                        <!-- <img style="width: 1.5cm; margin-top: 7%;" src="https://i.pinimg.com/originals/87/b1/2a/87b12a1e8a11f6c1264a237c5f08c195.png" alt="phone">   -->
+                        <span style="font-size: 30px;">86-1238-456</span>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-3 visi">
+                    <div class="icons">
+                        <i class="fa-solid fa-at fa-3x" style="margin-top: 10px; color: #27a3ff;"></i>
+                        <span style="font-size: 30px;">info@Lifecare.com</span>
+                    </div>
+                    <!-- <img style="width: 1.5cm; margin-top: 6%;" src="https://purepng.com/public/uploads/large/purepng.com-mail-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596075clftr.png" alt="mail">   -->
+                </div>
+                <div class="col-sm-3 visi">
+                    <div class="icons">
+                        <i class="fa-regular fa-clock fa-3x" style="margin-top: 10px; color: #27a3ff;"></i>
+                        <span style="font-size: 30px;">24 X 7 Service</span>
+                    </div>
+                    <!-- <img style="width: 1.5cm; margin-top: 3.5%;" src="https://icon-library.com/images/clock-icon-png-transparent/clock-icon-png-transparent-20.jpg" alt="clock">   -->
+                </div>
+            </div>
+
+            
+           <!-- <div class="right-header">
+              <div class="header-info">
+                 <div class="info-inner">
+                    <span class="icontop"><img src="images/phone-icon.png" alt="#"></span>
+                    <span class="iconcont"><a href="tel:800 123 456">800 123 456</a></span>	
+                 </div>
+                 <div class="info-inner">
+                    <span class="icontop"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <span class="iconcont"><a data-scroll href="mailto:info@yoursite.com">info@Lifecare.com</a></span>	
+                 </div>
+                 <div class="info-inner">
+                    <span class="icontop"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                    <span class="iconcont"><a data-scroll href="#">Daily: 7:00am - 8:00pm</a></span>	
+                 </div>
+              </div>
+           </div> -->
+        </div>
+        <br><br>
+     </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-fixed-top bg-primary" id="nav">
+        <div class="container-fluid">
+            <img style="height: 1cm;" src="images/doc-icon.png" alt="hospitallogo">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- <span class="navbar-toggler-icon"></span> -->
+            <span><img style="width: 1.5cm;" src="images/drop-icon.png" alt="drop"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li style="font-size: 20px;" class="nav-item">
+                <a class="nav-link active font-c" aria-current="page" href="#!home">
+                    Home
+                    
+                </a>
+                </li>
+                
+                <li style="font-size: 20px;" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active font-c" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Patient Section
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" ui-sref="1">Patient Registration</a></li>
+                    <li><hr class="dropdown-divider"></li> 
+                    <li><a class="dropdown-item" ui-sref="2">Patient Login</a></li>
+                    <!-- <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Patient Medical History</a></li>
+                    <li><hr class="dropdown-divider"></li> 
+                    <li><a class="dropdown-item" href="#">Patient Payment History</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Patient Prescription</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Patient Appointments</a></li> -->
+                </ul>
+
+                <li style="font-size: 20px;" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active font-c" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Doctors Section
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" ui-sref="5">Doctor Registration</a></li>
+                    <li><hr class="dropdown-divider"></li> 
+                    <li><a class="dropdown-item" ui-sref="4">Doctor Login</a></li>
+                </ul>
+               
+                <li style="font-size: 20px;" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active font-c" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Receptionist Section
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" ui-sref="3">Receptionist Login</a></li>
+                </ul>
+                <!-- </li>
+                <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+                </li> -->
+            </ul>
+            <!-- <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+    <!-- for ui view -->
+    <div ui-view>
+    <!-- for ui view -->
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    <!-- for ui view -->
+    </div>
+    <!-- for ui view -->
+
+
+   
+
+
+
+  
+
+    <footer class="text-white text-center text-lg-start bg-primary" id="foot">
+    <div class="container p-4">
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">About company</h5>
+  
+          <p>
+            A hospital is a health care institution providing patient treatment with specialized health science and auxiliary healthcare staff and medical equipment.
+          </p>
+  
+          <div class="mt-4">
+            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-facebook-f"></i></a>
+            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-dribbble"></i></a>
+            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-twitter"></i></a>
+            <a type="button" class="btn btn-floating btn-primary btn-lg"><i class="fab fa-google-plus-g"></i></a>
+          </div>
+        </div>
+  
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4 pb-1">Contact US</h5>
+  
+          
+  
+          <ul class="fa-ul" style="margin-left: 1.65em;">
+            <li class="mb-3">
+              <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">New York, NY 10012, US</span>
+            </li>
+            <li class="mb-3">
+              <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">info@Lifecare.com</span>
+            </li>
+            <li class="mb-3">
+              <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">86-1238-456</span>
+            </li>
+            <li class="mb-3">
+              <span class="fa-li"><i class="fas fa-print"></i></span><span class="ms-2">+ 01 234 567 89</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4">Opening hours</h5>
+  
+          <table class="table text-center text-white">
+            <tbody class="font-weight-normal">
+              <tr>
+                <td>Mon - Thu:</td>
+                <td>8am - 9pm</td>
+              </tr>
+              <tr>
+                <td>Fri - Sat:</td>
+                <td>8am - 1am</td>
+              </tr>
+              <tr>
+                <td>Sunday:</td>
+                <td>9am - 10pm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Made with AngularJs
+    </div>
+  </footer>
+  
+
+
+
+
+</body>
+</html>

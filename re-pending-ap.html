@@ -1,0 +1,50 @@
+
+<div class="container">
+  <h2>Appointments Pending for Approval</h2><br><br>
+
+
+  <p id="re-pend" style="text-align: center; color: red; font-size: 40px; margin-top: 15%; display: none;"></p>
+<div class="accordion" id="accordionExample">
+    <div ng-repeat="r in repend">
+        <div class="card cencard">
+            <h3 class="card-header" style="background-color: rgb(197, 255, 255); color: blue;">{{r.App_Doc}}</h3>
+            <div class="card-body" style="background-color: rgb(166, 216, 241);">
+              <h4 class="card-title" style="margin-left: 3%;">{{r.F_Name + " " + r.L_Name}}</h4>
+              <h5 style="margin-left: 5%;"><li>Appointment Date : {{r.App_date}}</li></h5>
+              <h5 style="margin-left: 5%;"><li>Appointment Time : {{r.App_time}}</li></h5>
+              <h5 style="margin-left: 5%;"><li>Patient Disease : {{r.Pat_disease}}</li></h5>
+              <h4 style="margin-left: 5%;"><li>Appointment Status &nbsp&nbsp: <span style="color: red;">&nbsp&nbsp{{r.App_Stat}}</span></li></h4>
+              <br>
+              <button type="button" class="btn btn-danger" style="width: 3cm;" ng-click="rej(r.ID)" data-bs-toggle="modal" data-bs-target="#exampleModal{{$index}}">Reject</button>
+              <button type="button" class="btn btn-success" style="float: right; width: 3cm;" ng-click="appro(r.ID)">Approve</button>
+            </div>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal{{$index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Specify Reason</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p style="font-size: 30px; color: red;">Reason</p>
+                <input type="text" class="form-control" ng-model="rereason" id="rereason" name="re-reason">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" ng-click="reject()">Reject</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+     </div>
+</div>
+</div>
+

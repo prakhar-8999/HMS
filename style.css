@@ -1,0 +1,257 @@
+.carousel-img{
+    height: 15cm;
+    width: 100%;
+}
+
+
+  
+.counts{
+    background: #b4d5f7;
+    padding: 70px 0 5px;
+
+}
+
+.line-thru{
+    display: block;
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.btnnn{
+    position: absolute;
+    margin-left: -177px;
+    margin-top: 75px;
+    height: 70px;
+    width: 70px;
+    border-radius: 2cm;
+    opacity: 0;
+}
+
+.btnnn:hover {
+    opacity: 0.7;
+}
+
+label{
+    color: rgb(32, 96, 247);
+}
+
+b{
+    color: red;
+}
+
+.font-c{
+    color: white;
+}
+
+.font-c:hover{
+    color: aliceblue;
+}
+
+.icons{
+    margin-top: 20px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 350px;
+    position: absolute;
+    /* z-index: 1; */
+    background-color: rgb(185, 247, 255);
+    /* overflow-x: hidden; */
+    /* padding-top: 20px; */
+}
+  
+.sidenav a {
+    /* margin-left: auto;  6px 8px 6px 16px; */
+    /* margin-right: auto; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+  
+.sidenav a:hover {
+    color: #3603f1;
+}
+  
+.main {
+    margin-left: 350px;
+    font-size: 28px;
+    padding: 0px 10px;
+}
+.logoutbtn{
+    margin-right: 3cm;
+}
+.toggle{
+    display: none;
+}
+.crossbtn{
+    display: none;
+}
+/* .dash{
+    font-size: 30px;
+} */
+
+.do-basic{
+    font-size: 25px;
+}
+.alloted-details{
+    margin-left: 10%;
+}
+.approval{
+    text-align: end;
+    font-size: 22px
+}
+.app{
+    font-size: 130%;
+    
+}
+.presimg{
+    width: 70%;
+}
+.docde{
+    text-align: end;
+}
+.text-a{
+    width: 100%;
+}
+.payde{
+    font-size: 20px;
+}
+.cencard{
+    width: 75%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+/* .repoto{
+    width: 70%;
+} */
+.divre{
+    border-radius: 70px;
+}
+
+/* .tafont{
+    font-size: 20px;
+} */
+
+.pro{
+    padding-left: 5cm;
+    padding-right: 5cm;
+}
+.docpro{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 515px) {
+    .carousel-img{
+        height: 6cm;
+        width: 100%;
+    }
+    .icons{
+        margin-left: 12px;
+    }
+    .visi{
+        display: none;
+    }
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    .sidebar1{
+        display: none;
+    }
+    .main{
+        margin-left: 0px;
+    }
+    .logoutbtn{
+        margin-right: 1cm;
+    }
+    .toggle{
+        display: block;
+    }
+    .dash{
+        display: none;
+    }
+    .toggle{
+        display: block;
+    }
+    .usericon{
+        display: none;
+    }
+    .doc-dash{
+        display: none;
+    }
+    .approval{
+        text-align: start;
+        font-size: 20px
+    }
+    .presimg{
+        width: 70%;
+    }
+    .docde{
+        text-align: start;
+    }
+    .text-a{
+        width: 100%;
+    }
+    .navitemdata{
+        display: none;
+    }
+    .cencard{
+        width: 100%;
+    }
+    /* .repoto{
+        display: none;
+    } */
+    .divre{
+        border-radius: 0px;
+    }
+    .pro{
+        padding-left: 0cm;
+        padding-right: 0cm;
+    }
+    .padi{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .docpro{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+}
+

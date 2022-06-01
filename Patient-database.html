@@ -1,0 +1,141 @@
+<div class="container">
+  <h1>Patient Database</h1>
+
+<!-- <h1>Doctor-Database</h1> --><br>
+
+<h3>Search by Patient Name</h3><br>
+
+<input type="text" ng-model="search" placeholder="Search" class="form-control"><br>
+<h5>Search results for : {{search}}</h5>
+
+
+<!-- <input type="text" ng-model="search" placeholder="Enter some text to search" class="form-control"><br> -->
+<br>
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+        <th>S_No.</th>
+        <th class="tafont">Patient Id</th>
+        <th class="tafont">Name</th>
+        <th class="tafont">D.O.B</th>
+        <th class="tafont">Email</th>
+        <th class="tafont">Mobile Number</th>
+        <th class="tafont">Patient info</th>
+        <th>Appointments</th>
+        <th>Delete Patient<th>
+    </tr>
+
+    <tr ng-repeat="data in pasearch | filter : search">
+        <td>{{$index + 1}}</td>
+        <td>{{data.Username}}</td>
+        <td>{{data.First_Name + " " + data.Last_Name}}</td>
+        <td>{{data.DOB}}</td>
+        <td>{{data.Email}}</td>
+        <td>{{data.Mobile_Number}}</td>
+        <td><button type="button" class="btn btn-success" style="width: 100%;" ng-click="paview(data.id)" data-bs-toggle="modal" data-bs-target="#patientDetails">View</button></td>
+        <td><button type="button" class="btn btn-info" style="width: 100%;" ng-click="apshow(data.id)" data-bs-toggle="modal" data-bs-target="#Appointment">Show</button></td>
+        <td><button type="button" class="btn btn-danger" style="width: 100%;" ng-click="dele(data.id)">Delete</button></td>
+    </tr>
+</table>
+</div>
+
+
+
+<!-- Patient Modal -->
+<div class="modal fade" id="patientDetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg" style="width: 90%;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">Patient Details</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3><li>Personal Info</li></h3>
+                    <h5 style="margin-left: 15%;">DOB : &nbsp{{pdat.DOB}}</h5>
+                    <h5 style="margin-left: 15%;">Gender : &nbsp{{pdat.Gender}}</h5>
+                    <h5 style="margin-left: 15%;">Blood Group : &nbsp{{pdat.Blood_Group}}</h5>
+                    <h5 style="margin-left: 15%;">Mobile Number : &nbsp{{pdat.Mobile_Number}}</h5>
+                    <h5 style="margin-left: 15%;">Email : &nbsp{{pdat.Email}}</h5>
+                    <!-- <h5 style="margin-left: 9%;">Country : &nbsp{{pdat.Country}}</h5> -->
+                </div>
+                <div class="col-sm-6">
+                    <h3><li>Address Details</li></h3>
+                    <h5 style="margin-left: 15%;">Address : &nbsp{{pdat.Address}}</h5>
+                    <h5 style="margin-left: 15%;">City : &nbsp{{pdat.City}}</h5>
+                    <h5 style="margin-left: 15%;">Pincode : &nbsp{{pdat.Pincode}}</h5>
+                    <h5 style="margin-left: 15%;">State : &nbsp{{pdat.State}}</h5>
+                    <h5 style="margin-left: 15%;">Country : &nbsp{{pdat.Country}}</h5>
+                </div>
+            </div>
+
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- Appointment Modal -->
+<div class="modal fade" id="Appointment" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">Appointment Details</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+
+            <input type="text" ng-model="apsearch" placeholder="Search" class="form-control"><br>
+            <h5>Search results for : {{apsearch}}</h5>
+
+
+            <!-- <input type="text" ng-model="search" placeholder="Enter some text to search" class="form-control"><br> -->
+            <br>
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                    <th>S_No.</th>
+                    <th class="tafont">Appointment Data</th>
+                    <th class="tafont">Appointment Time</th>
+                    <th class="tafont">Appointed Doctor</th>
+                    <!-- <th class="tafont">Age</th> -->
+                    <th class="tafont">Disease</th>
+                    <th class="tafont">Payment Status</th>
+                    <th>Appointment Status</th>
+                    <th>Diagnosis Report</th>
+                    <th>Prescription</th>
+                </tr>
+
+                <tr ng-repeat="data in aps | filter : apsearch">
+                    <td>{{$index + 1}}</td>
+                    <td>{{data.Appointment_date}}</td>
+                    <td>{{data.Appointment_time}}</td>
+                    <td>{{data.Appointed_Doctor}}</td>
+                    <!-- <td>{{data.Patient_Age}}</td> -->
+                    <td>{{data.Patient_Disease}}</td>
+                    <td id="{{$index}}" ng-style="{ 'color' : (data.Payment_Status == 'Successful') ? 'green' : 'red' }">{{data.Payment_Status}}</td>
+                    <td ng-style="{ 'color' : (data.Appointment_Status == 'Approved' || data.Appointment_Status == 'Visited') ? 'green' : 'red' }">{{data.Appointment_Status}}</td>
+                    <td>{{data.Diagnosis}}</td>
+                    <td>{{data.Prescription}}</td>
+                </tr>
+              </table>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+</div>
+</div>

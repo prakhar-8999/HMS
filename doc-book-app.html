@@ -1,0 +1,104 @@
+<section class="h-100 h-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+          <div class="card rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Book Appointment</h2>
+  
+              <form class="px-md-2" ng-submit="docappointment()" name="doapfom">
+  
+                <div class="col-sm-12">
+                    <label for="pa" style="font-size: 23px;" class="form-label"><strong>Patient Name<b>*</b></strong></label>
+                    <!-- <input type="text" id="apname" class="form-control form-control-lg" placeholder="Name" value="{{name}}" disabled><br> -->
+                    <select name="pa" id="pa" ng-model="pa" class="form-control form-control-lg" ng-change="ge()" required>
+                        <option value="">Select</option>
+                        <option
+                            ng-repeat="pa in re.data.Appointment_detail"
+                            value={{pa.Id}}>
+                            {{pa.F_Name + " " + pa.L_Name}}
+                        </option>
+                    </select>
+                </div><br>
+                
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- <label for="apage" style="font-size: 23px;" class="form-label"><strong>Age<b>*</b></strong></label> -->
+                        <input type="text" class="form-control form-control-lg" value={{agee}} id="age" placeholder="Age" disabled><br>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-lg" value="{{gend}}" placeholder="Gender" disabled><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="docnam" style="font-size: 23px;" class="form-label"><strong>Doctor<b>*</b></strong></label>
+                        <input type="text" id="docnam" name="docnam" class="form-control form-control-lg" value="Dr.{{name}}" disabled><br>
+                        <!-- <select name="lidoctor" id="lidoctor" ng-model="lidoctor" class="form-control form-control-lg hello" ng-change="feees()" required>
+                            <option value="">Select</option>
+                            <option
+                                ng-repeat="doctor in docdetails.data.Doctor_detail"
+                                value={{doctor.id}}>
+                                {{doctor.First_Name + " " + doctor.Last_Name +"  "+ "( " + doctor.Speciality + " )"}}
+                            </option>
+                        </select>  -->
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="des" style="font-size: 23px;" class="form-label"><strong>Symptoms&nbsp<b>*</b></strong></label>
+                        <select name="des" id="des" ng-model="des" class="form-control form-control-lg" required>
+                            <option value="">Select</option>
+                            <option value={{de.Disea}} ng-repeat="de in dis">{{de.Disea}}</option>
+                            
+                        </select> 
+                    </div>
+                </div>
+                <br>
+                
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="date" style="font-size: 23px;" class="form-label"><strong>Date&nbsp<b>*</b></strong></label>
+                        <input id="date" name="date" type="date" class="form-control form-control-lg" ng-model="date" required>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <label for="time" style="font-size: 23px;" class="form-label"><strong>Time Slot&nbsp<b>*</b></strong></label>
+                        <select name="time" id="time" ng-model="time" class="form-control form-control-lg" required>
+                            <option value="">Select</option>
+                            <option value="8am - 10am">8am - 10am</option>
+                            <option value="10am - 12am">10am - 12am</option>
+                            <option value="12pm - 01pm">12pm - 01pm</option>
+                            <option value="3pm - 5pm">3pm - 5pm</option>
+                            <option value="6pm - 8pm">6pm - 8pm</option>
+                        </select> 
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 id="fe">Consultancy Fees :</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3>{{fee}}</h3>
+                        <!-- <button type="button" id="paybtn" style="width: 100%;" ng-click="payment()" class="btn btn-outline-success btn-lg">Make Payment</button> -->
+                    </div>
+                </div>
+                
+
+                
+  
+                <br>
+                <button type="submit" class="btn btn-dark btn-lg mb-1">Book Appointment</button>
+                
+                <!-- <div class="col-sm-12">
+                    <p style="color: red; display: none;" id="payreq">Go to your appointment section and Make Payment</p>
+                </div> -->
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

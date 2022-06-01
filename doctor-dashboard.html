@@ -1,0 +1,251 @@
+<nav class="navbar fixed-top" style="background-color: aqua">
+    <div class="container-fluid">
+        
+        <a class="navbar-brand" style="color: rgb(63, 12, 247); font-size: 30px">
+            <img src="images/logo.png" style="width: 8cm;" class="d-none d-xl-block" alt="doc-icon">
+            <!-- <span class="doc-dash">&nbsp&nbsp&nbsp&nbspWelcome...&nbsp&nbsp {{name}}</span> -->
+        </a>
+         
+
+
+        <a class="nav-link active" style="font-size: 30px; margin-left: 40%;  margin-top: 0.3cm;" ui-sref="7.d-ap" aria-current="page">
+            <button type="button" style="border: none; background: none;" class="position-relative">
+                <i class="fa-solid fa-bell"></i>
+                <span style="margin-left: 20px; width: 50px;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span style="font-size: 17px;">{{no}}</span>
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+        </a>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span><img src="images/menu.png" alt="menu" style="width: 1cm;"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header" style="background-color: aqua">
+                <h2 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <!-- DOCTOR DASHBOARD -->
+
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div style="background-color: aqua;">
+                <center>
+                <img src="images/dashuser.png" style="width: 5cm; margin-left: auto; margin-right: auto;" alt="">
+
+                </center>
+                <br><br>
+                <h3 style="text-align: center;">Dr. {{name}}</h3>
+                <br>
+                <h4 style="text-align: center;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{phone}}</h4>
+                <br>
+                <h4 style="text-align: center;"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbsp{{email}}</h4>
+            </div>
+            
+            <!-- <img src="images/dashuser.png" style="width: 5cm; margin-left: auto; margin-right: auto;" alt="">
+            <br><br>
+            <h3 style="text-align: center;">Dr. {{name}}</h3>
+            <br>
+            <h4 style="text-align: center;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{phone}}</h4>
+            <br>
+            <h4 style="text-align: center;"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbsp{{email}}</h4> -->
+            <div class="offcanvas-body" style="background-color: aqua">
+                <ul class="navbar-nav justify-content-center-end flex-grow-1 pe-3">
+                    <!-- <li class="nav-item"><br>
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.d-ap" aria-current="page" style="font-size: 30px; color: rgb(69, 122, 255);">
+                            <button type="button" style="border: none; background-color: white;" class="position-relative">
+                                Appointments
+                                <i class="fa-solid fa-bell"></i>
+                                <span style="margin-left: 20px; width: 50px;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                  <span style="font-size: 17px;">{{no}}</span>
+                                  <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </a> 
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.pro">
+                            <button style="border: none; background-color: aqua;" data-bs-dismiss="offcanvas">
+                                My-Profile
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.approved">
+                            <button style="border: none; background-color: aqua;" data-bs-dismiss="offcanvas">
+                                Appointments
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.visited-pa">
+                            <button style="border: none; background-color: aqua;" data-bs-dismiss="offcanvas">
+                                Previous Appointment
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.alloted">
+                            <button style="border: none; background-color: aqua;" data-bs-dismiss="offcanvas">
+                                Patients
+                            </button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="7.doc-book-app">
+                            <button style="border: none; background-color: aqua;" data-bs-dismiss="offcanvas">
+                                Book Appointments
+                            </button>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                   
+                    <li class="nav-item"><br>
+                        <!-- <a class="nav-link active" style="text-align: center; font-size: 30px;"> -->
+                            <center>
+                                <button class="btn btn-outline-danger btn-lg" id="dologout" ng-click="dologout()" style="width: 5cm;">
+                                    LOGOUT
+                                </button>
+                            </center>
+                                
+                            
+                        <!-- </a> -->
+                    </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div style="height: 3cm;">
+    
+</div>
+<div class="docpro">
+    <div ui-view="docdash">
+  
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div style="width: 100%; background-color: rgb(47, 154, 247); border-radius: 40px;">
+        
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <center><img src="images/doc-circle.png" style="width: 4cm; margin-top: 18px; margin-left: 10px;"  alt=""></center>
+                        </div>
+                        <div class="col-sm-9">
+                            <br>
+                            <b style="font-size: 40px; color: white;"> &nbspWelcome, Dr. {{name}}</b>
+                            <p style="color: white; font-size: 25px; margin-left: 3%;">Wish you have a nice day</p>
+                        </div>
+                    </div>
+                   <br>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div style="width: 100%; height: 5cm; background-color: rgb(47, 154, 247); border-radius: 40px;">
+                            <br><p style="color: white; font-size: 30px; margin-left: 10%;"><strong>Total Appointments</strong></p>
+                            <p style="color: white; font-size: 40px; text-align: center;"><strong>{{allotedlen}}+</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">  
+                        <center>
+                            <span style="color: blue; font-size: 30px;"><strong>Progress</strong></span>
+                            <img src="images/semipro.png" style="width: 80%;" alt="">
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+
+                <br>
+            <strong style="font-size: 30px; opacity: 0.7;">Recent Patients</strong>
+            <hr>
+
+            <div style="overflow-y: scroll; height:450px;">
+                <div ng-repeat="al in alloted">
+                    <div class="card" style="background-color: rgb(47, 154, 247); border-radius: 1cm;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-11">
+                                    <p style="color: white; font-size: 25px; margin-left: 10%;"><strong>{{al.F_Name + " " + al.L_Name}}</strong></p>
+                                    <span style="color: white; font-size: 20px; margin-left: 15%;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{al.M_No}}</span><br>
+                                    <span style="color: white; font-size: 20px; margin-left: 15%;"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp{{al.email}}</span>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+
+            </div>
+            <div class="col-sm-8"><br>
+                <p style="font-size: 30px; color: rgb(157, 157, 157);">
+                    Your Last Activity <hr>
+                </p>
+
+
+
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <div class="col">
+                      <div class="card" style="border-color: rgb(47, 154, 247); border-style: solid; border-width: 5px; height: 12cm;">
+                        <center><img src="images/checkup.png" style="width: 60%; margin-top: 10px;" class="card-img-top" alt="..."></center>
+                        <div class="card-body">
+                            <br><br><br>
+                            <h3 class="card-title" style="text-align: center; color: blue;">Check Up</h3>
+                            <h4 style="text-align: center; color: blue;">2560+</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card" style="border-color: rgb(47, 154, 247); border-style: solid; border-width: 5px; height: 12cm;">
+                        <center><img src="images/surgery.png" style="width: 60%; margin-top: 10px;" class="card-img-top" alt="..."></center>
+                        <div class="card-body">
+                            <br><br>
+                            <h3 class="card-title" style="text-align: center; color: blue;">Total Surgery</h3>
+                            <h4 style="text-align: center; color: blue;">250+</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card" style="border-color: rgb(47, 154, 247); border-style: solid; border-width: 5px; height: 12cm;">
+                        <center><img src="images/yourpat.png" style="width: 60%; margin-top: 10px;" class="card-img-top" alt="..."></center>
+                        <div class="card-body">
+                            <br>
+                            <h3 class="card-title" style="text-align: center; color: blue;">Your Patients</h3>
+                            <h4 style="text-align: center; color: blue;">7+</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="border-color: rgb(47, 154, 247); border-style: solid; border-width: 5px; height: 12cm;">
+                            <center><img src="images/admit.png" style="width: 60%; margin-top: 10px;" class="card-img-top" alt="..."></center>
+                            <div class="card-body">
+                                <br><br><br>
+                                <h3 class="card-title" style="text-align: center; color: blue;">Total Admit</h3>
+                                <h4 style="text-align: center; color: blue;">20560+</h4>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

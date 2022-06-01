@@ -1,0 +1,249 @@
+
+
+<div class="container">
+    <div class="card mb-3" style="width: 100%; border: none;">
+        <div class="row g-0">
+            
+          <div class="col-md-2 d-none d-xl-block">
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+                <div class="container">
+                    <br><br>
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        
+                        <img style="width: 70%;" src="images/logo.png" alt="logo">
+                    </div>
+                    <br>
+                    <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your account</h4>
+                    <br>
+
+                    <form name="myfom" ng-submit="register()">
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="fname" class="form-label"><strong>FIRST NAME<b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="fname" id="fname" required>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="lname" class="form-label"><strong>LAST NAME <b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="lname" id="lname" required>
+        
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="Uname" class="form-label"><strong>USERNAME <b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="username" id="Uname" required>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="DOB" class="form-label"><strong>DOB <b>*</b></strong></label>
+                                <input type="date" class="form-control" ng-model="dob" id="DOB" required>
+                               
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="email" class="form-label"><strong>EMAIL <b>*</b></strong></label>
+                                <input type="email" class="form-control" ng-model="email" id="email" required>
+                               
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="phone" class="form-label"><strong>PHONE <b>*</b></strong></label>
+                                <input type="number" class="form-control" min="1000000000" max="9999999999" ng-model="phone" id="phone" required>
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="gen" class="form-label"><strong>GENDER <b>*</b></strong></label>
+                                <select name="gen" id="gen" ng-model="gen" class="form-control" required>
+                                    <option value="">Select</option>
+                                    <option value="MALE">MALE</option>
+                                    <option value="FEMALE">FEMALE</option>
+                                    <option value="OTHERS">OTHERS</option>
+                                </select>
+                                
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <label for="add" class="form-label"><strong>ENTER YOUR FULL ADDRESS <b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="address" id="add" required>
+                                
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="blood" class="form-label"><strong>BLOOD GROUP</strong></label>
+                                <select name="blood" id="blood" ng-model="blood" class="form-control">
+                                    <option value="">Select</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label for="country" class="form-label"><strong>COUNTRY <b>*</b></strong></label>
+                                <select name="country" id="country" ng-model="country" class="form-control" required>
+                                    <option value="">Select</option>
+                                    <option value="INDIA">INDIA</option>
+                                </select>
+                               
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="state" class="form-label"><strong>STATE <b>*</b></strong></label>
+                                <select name="state" id="state" ng-model="state" class="form-control" required>
+                                    <option value="">Select</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chandigarh">Chandigarh</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                    <option value="Daman and Diu">Daman and Diu</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Lakshadweep">Lakshadweep</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="city" class="form-label"><strong>CITY <b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="city" id="city" required>
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="pincode" class="form-label"><strong>PINCODE <b>*</b></strong></label>
+                                <input type="number" class="form-control" min="100000" max="999999" ng-model="pin" id="pincode" required>
+                                
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="Gov-id" class="form-label"><strong>GOVERNMENT ID <b>*</b></strong></label>
+                                <select name="Gov-id" id="Gov-id" ng-model="govid" class="form-control" required>
+                                    <option value="">Select</option>
+                                    <option value="AADHAR">AADHAR CARD</option>
+                                    <option value="PAN">PAN CARD</option>
+                                    <option value="VOTER ID">VOTER ID CARD</option>
+                                    <option value="PASSPORT">PASSPORT</option>
+                                    <option value="DRIVING LICENCE">DRIVING LICENCE</option>
+                                </select>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="govnum" class="form-label"><strong>GOVERNMENT ID NO. <b>*</b></strong></label>
+                                <input type="text" class="form-control" ng-model="govnum" id="govnum" required>
+                                
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <!-- <div class="col-sm-12">
+                            <label for="des" class="form-label"><strong>DESCRIPTION</strong></label>
+                            <textarea id="des" name="des" rows="4" ng-model="desarea" cols="50" class="form-control">
+
+                            </textarea>
+                        </div> -->
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="height" class="form-label"><strong>HEIGHT</strong></label><br>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" min="1" max="500" ng-model="height" id="height" >
+                                    <div class="input-group-text">cm</div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="weight" class="form-label"><strong>WEIGHT</strong></label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" min="1" max="500" ng-model="weight" id="weight">
+                                    <div class="input-group-text">kg</div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="pass" class="form-label"><strong>PASSWORD <b>*</b></strong></label>
+                                <input type="password" class="form-control" ng-model="pass1" id="pass" required>
+                                
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="cpass" class="form-label"><strong>CONFIRM PASSWORD <b>*</b></strong></label>
+                                <input type="password" class="form-control" ng-model="pass2" id="cpass" required>
+                                
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-sm-12">
+                            <label for="medi" class="form-label"><strong>Any Medical History</strong></label>
+                            <textarea name="medi" id="medi" ng-model="medi" cols="30" rows="4" class="form-control"></textarea>
+                            <br><br>
+                        </div>
+
+                        
+                        <br>
+                        <div class="col-sm-12">
+                            <button type="submit" style="float: right;" class="btn btn-dark btn-lg btn-block btn-lg ms-2">Submit</button>
+                            <br><br>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

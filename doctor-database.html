@@ -1,0 +1,155 @@
+<!-- <h1>Doctor-Database</h1> --><br>
+<div class="container">
+    <h3>Search by Speciality</h3><br>
+<select name="search" ng-model="search" class="form-control">
+    <option value="" class="dropdown-item">Select</option>
+    <option value={{s.Spec}} ng-repeat="s in seasp">{{s.Spec}}</option>
+</select><br>
+
+<h5>Search results for : {{search}}</h5>
+
+
+<!-- <input type="text" ng-model="search" placeholder="Enter some text to search" class="form-control"><br> -->
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>S_No</th>
+            <th>Doctor ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Speciality</th>
+            <th>Doctor Detail</th>
+            <th>Registered Patients</th>
+        </tr>
+    
+        <tr ng-repeat="data in docsearch | filter : search">
+            <th>{{$index + 1}}</th>
+            <td>{{data.Username}}</td>
+            <td>Dr. {{data.First_Name + " " + data.Last_Name}}</td>
+            <td>{{data.Email}}</td>
+            <td>{{data.Mobile_Number}}</td>
+            <td>{{data.Speciality}}</td>
+            <td><button type="button" class="btn btn-success" style="width: 100%;" ng-click="viewde(data.id)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button></td>
+            <td><button type="button" class="btn btn-info" style="width: 100%;" ng-click="viewpat(data.id)" data-bs-toggle="modal" data-bs-target="#patientBackdrop">View</button></td>
+        </tr>
+    </table>
+</div>
+
+
+
+<!-- Modal Doctor-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">DOCTOR DETAILS ! </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="card">
+                <div class="card-header">
+                  <h4>Dr. {{docd.First_Name + " " + docd.Last_Name}}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4><li>Personal Info</li></h4><br>
+                            <h5 style="margin-left: 5%;">DOB : &nbsp&nbsp&nbsp{{docd.DOB}}</h5>
+                            <h5 style="margin-left: 5%;">Gender : &nbsp&nbsp&nbsp{{docd.Gender}}</h5>
+                            <h5 style="margin-left: 5%;">Blood Group : &nbsp&nbsp&nbsp{{docd.Blood_Group}}</h5>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <h4><li>Work Details</li></h4><br>
+                            <h5 style="margin-left: 5%;">Qualification  :&nbsp&nbsp&nbsp{{docd.Qualification}}</h5>
+                            <h5 style="margin-left: 5%;">Speciality  :&nbsp&nbsp&nbsp{{docd.Speciality}}</h5>
+                            <h5 style="margin-left: 5%;">Experience  :&nbsp&nbsp&nbsp{{docd.Experience}}&nbsp years</h5>
+                            <h5 style="margin-left: 5%;">Previously Working At  :&nbsp&nbsp&nbsp{{docd.Previously_Working_at}}</h5>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3><li>Address Info</li></h3>
+                            <h5 style="margin-left: 5%;">Address : &nbsp&nbsp&nbsp{{docd.Address}}</h5>
+                            <h5 style="margin-left: 5%;">City : &nbsp&nbsp&nbsp{{docd.City}}</h5>
+                            <h5 style="margin-left: 5%;">State : &nbsp&nbsp&nbsp{{docd.State}}</h5>
+                            <h5 style="margin-left: 5%;">Country : &nbsp&nbsp&nbsp{{docd.Country}}</h5>
+                            <h5 style="margin-left: 5%;">Pincode : &nbsp&nbsp&nbsp{{docd.Pincode}}</h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4><li>Contact Details</li></h4><br>
+                            <h5 style="margin-left: 5%;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp&nbsp{{docd.Mobile_Number}}</h5><br>
+                            <h5 style="margin-left: 5%;"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp&nbsp{{docd.Email}}</h5>
+                            <br>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- Modal patient -->
+<div class="modal fade" id="patientBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="staticBackdropLabel">Registered Patients</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <br>
+
+            <!-- <select name="search" ng-model="pasearch" class="form-control">
+                <option value="" class="dropdown-item">Select</option>
+                <option value={{dop.Usern}} ng-repeat="dop in dopat">{{dop.F_Name + " " + dop.L_Name}}</option>
+            </select><br> -->
+            <input type="text" ng-model="pasearch" class="form-control form-control-lg" placeholder="Search" style="font-size: 20px;"><br><br>
+            <h5>Search results for : {{pasearch}}</h5><br>
+            
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>S_No.</th>
+                        <th>Patient Id</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Blood Group</th>
+                        
+                    </tr>
+                
+                    <tr ng-repeat="data in dopat | filter : pasearch">
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.Usern}}</td>
+                        <td>{{data.F_Name + " " + data.L_Name}}</td>
+                        <td>{{data.Gend}}</td>
+                        <td>{{data.dob}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.M_No}}</td>
+                        <td>{{data.blood_group}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

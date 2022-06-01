@@ -1,0 +1,233 @@
+<nav class="navbar fixed-top" style="background-color: aqua;">
+  
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="logo" style="width: 8cm;" class="d-none d-xl-block">
+      </a>
+      <a style="margin-left: 60%;" ui-sref="8.re-pending-ap">
+        <button type="button" class="position-relative" style="border: none; background: none; margin-top: 7px;">
+          <i class="fa-solid fa-bell fa-2x"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{noti}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <span><img src="images/menu.png" alt="menu" style="width: 1cm;"></span>
+      </button>
+      
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header" style="background-color: aqua;">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="background-color: aqua;">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+            <img src="images/reception.png" style="width: 9cm; margin-left: auto; margin-right: auto;" alt="reception">
+
+            <h3 style="text-align: center;">{{fullname}}</h3>
+            <br>
+            <h4 style="text-align: center;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{redata.Mobile_Number}}</h4>
+            <h4 style="text-align: center;"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbsp{{redata.Email}}</h4><br>
+
+            
+            <li class="nav-item">
+              <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="8.re-profile">
+                  <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                      <span style="color: blue;">Profile</span>
+                  </button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="8.re-ap-book">
+                  <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                      <span style="color: blue;">Book Appointment</span>
+                  </button>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="8.doctor-database">
+                  <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                      <span style="color: blue;">Doctor Record</span>
+                  </button>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="8.Patient-database">
+                  <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                      <span style="color: blue;">Patient Record</span>
+                  </button>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="8.report">
+                  <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                      <span style="color: blue;">Generate Report</span>
+                  </button>
+              </a>
+            </li>
+            
+            
+            
+
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+
+            <li class="nav-item"><br>
+                  <center>
+                      <button class="btn btn-outline-danger btn-lg" id="relogout" ng-click="relogout()" style="width: 5cm;">
+                          LOGOUT
+                      </button>
+                  </center>
+            </li>
+          </ul>
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+ <br><br><br><br>
+  <div class="docpro">
+      <div ui-view="recep">
+        
+
+
+            <div class="row"> 
+              <div class="col-sm-6" style="background-color: rgb(27, 139, 225); border-radius: 2cm;">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <center><img src="images/re-circle.png" style="width: 4cm; margin-top: 20px;" alt=""></center>
+                  </div>
+                
+                  <div class="col-sm-9">
+                    <br>
+                    <p style="color: white; font-size: 40px;" ><strong>Welcome, {{fullname}}</strong></p> 
+                    <p style="color: white; font-size: 30px; margin-left: 3%;">Wish you have a nice day</p>
+                  </div>
+                </div>
+                
+              </div>
+              <div class="col-sm-3">
+                <div class="card" style="border: none;">
+                      
+                  <img src="images/pacount.svg" class="card-img-top" alt="pacount" style="color: blue; width: 3cm; margin-left: auto; margin-right: auto;">
+                  <div class="card-body">
+                    <p style="text-align: center; font-size: 35px; color: blue;"><strong>Patients</strong></p>
+                    <p style="text-align: center; font-size: 30px; color: blue;"><strong>{{palen}} + </strong></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="card" style="border: none;">
+                  <img src="images/docount.svg" class="card-img-top" alt="docount" style="width: 3cm; margin-left: auto; margin-right: auto;">
+                  <div class="card-body">
+                    <p style="text-align: center; font-size: 35px; color: blue;"><strong>Doctors</strong></p>
+                    <p style="text-align: center; font-size: 30px; color: blue;"><strong>{{docount}} + </strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <hr>
+
+
+
+            <div class="row">
+              <div class="col-sm-7">
+                <div class="row">
+
+                <div class="col-sm-6">
+                  <h3 style="text-align: center; color: blue; font-size: 40px;">PATIENT'S</h3><br>
+
+                  <div style="overflow-y: scroll; height:500px;">
+                    <div ng-repeat="all in patientsss">
+                        <div class="card" style="background-color: rgb(47, 154, 247); border-radius: 1cm;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-11">
+                                        <p style="color: white; font-size: 25px; margin-left: 10%;"><strong>{{all.First_Name + " " + all.Last_Name}}</strong></p>
+                                        <span style="color: white; font-size: 20px; margin-left: 15%;"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{all.Mobile_Number}}</span><br>
+                                        <span style="color: white; font-size: 20px; margin-left: 15%;"><i class="fa-solid fa-envelope"></i>&nbsp&nbsp{{all.Email}}</span>
+                                        <!-- <span style="color: white; font-size: 20px; margin-left: 15%;">{{al.F_Name + " " + al.L_Name}}</span> -->
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                  </div>
+                  <br><br>
+                </div>
+
+
+
+
+                <div class="col-sm-6">
+                  <h3 style="text-align: center; color: blue; font-size: 40px;">DOCTOR'S</h3><br>
+                  <div style="overflow-y: scroll; height:500px;">
+                    <div ng-repeat="do in d">
+                        <div class="card" style="background-color: rgb(47, 154, 247); border-radius: 1cm;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-1">
+    
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <p style="color: white; font-size: 35px; margin-left: 10%;">{{do.Speciality}}</p>
+                                        <span style="color: white; font-size: 25px; margin-left: 15%;">Dr. {{do.First_Name + " " + do.Last_Name}}</span>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-sm-5">
+                <br><br>
+                
+                <img src="images/hosbar.png" width="100%" alt="">
+              </div>
+            </div>
+
+            
+            
+
+
+
+        
+      </div>
+  </div>

@@ -1,0 +1,456 @@
+<!-- <div class="navbar bg-light" style="height: 2cm;">
+    <div class="container-fluid">
+        <div>
+            <button style="border: none;" class="crossbtn" ng-style="crossbtn" ng-click="myStyle={display: 'none'};togglebtn={display: 'block'};crossbtn={display: 'none'}">
+                <img src="images/cross.png" alt="menu" style="width: 1cm;">
+            </button>
+            <button style="border: none;" class="toggle" ng-style="togglebtn" ng-click="myStyle={display: 'block'};togglebtn={display: 'none'};crossbtn={display: 'block'}">
+                <img src="images/menu.png" alt="menu" style="width: 1cm;">
+            </button>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="usericon"><i class="fa-solid fa-user fa-3x" style="color: rgb(18, 124, 254);"></i></span>
+            <span class="dash" style="font-size: 40px;">&nbsp&nbsp&nbspWelcome <b style="color: blue;">{{name}}&nbsp...</b></span>
+        </div>
+       
+        <div class="d-flex">
+            <div class="btn-group logoutbtn">
+                <button type="button" class="dropdown-toggle" style="border: none; color: rgb(65, 115, 242);" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user-lock fa-2x"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" ui-sref="6.p-profile">
+                            <i class="fa-solid fa-user fa-2x"></i>
+                            <span style="font-size: 25px;">&nbspProfile</span>
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    
+
+                    <li>
+                        <button class="dropdown-item" type="button" id="logoutbtn">
+                            <i class="fa-solid fa-right-from-bracket fa-2x"></i>
+                            <span style="font-size: 25px;" >&nbspLogout</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg" style="background-color: aqua;">
+  <div class="container-fluid">
+    <a class="navbar-brand d-none d-xl-block" href="#">
+        <img src="images/logo.png" style="width: 70%;" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <div class="d-flex">
+        <button type="button" style="background: none; border: none;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            <span><img src="images/menu.png" alt="menu" style="width: 1cm;"></span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header" style="background-color: aqua;">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" style="background-color: aqua;">
+        <center>
+            <img src="images/dashuser.png" style="width: 5cm;" alt="dashuser">
+        </center>
+        <br>
+        <p style="text-align: center; font-size: 35px;">
+            <i class="fa-solid fa-user"></i>
+            <span style="font-size: 35px;">&nbsp{{name}}</span>
+        </p>
+        <p style="text-align: center; font-size: 30px;">
+            <i class="fa-solid fa-phone"></i>
+            <span style="font-size: 25px;">&nbsp{{mob}}</span>
+        </p>
+        <p style="text-align: center; font-size: 30px;">
+            <i class="fa-solid fa-envelope"></i>
+            <span style="font-size: 25px;">&nbsp{{emai}}</span>
+        </p>
+
+        <br><br>
+
+        <ul class="navbar-nav justify-content-center-end flex-grow-1 pe-3">
+            <li class="nav-item">
+                <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="6.p-profile">
+                    <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                        <span style="color: blue;">My Profile</span>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="6.appoi">
+                    <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                        <span style="color: blue;">Book Appointments</span>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="6.papp">
+                    <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                        <span style="color: blue;">Previous Appointments</span>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="6.pprescription">
+                    <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                        <span style="color: blue;">Previous Prescription</span>
+                    </button>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" style="text-align: center; font-size: 30px;" ui-sref="6.phistory">
+                    <button style="border: none; background: none;" data-bs-dismiss="offcanvas">
+                        <span style="color: blue;">Payment History</span>
+                    </button>
+                </a>
+            </li>
+
+
+            <li class="nav-item"><br>
+                    <center>
+                        <button class="btn btn-danger btn-lg" id="logoutbtn" style="width: 5cm;">
+                            LOGOUT
+                        </button>
+                    </center>
+            </li>
+        </ul>
+        
+    </div>
+</div>
+
+
+
+<br>
+<!-- For ui-view-->
+<div ui-view="patient" class="container">
+    
+    <div class="row">
+        <div class="col-sm-8">
+            <div style="background-color: rgb(47, 154, 247); border-radius: 40px;">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <center><img src="images/u.png" style="width:4cm;" alt=""></center>
+                    </div>
+                    <div class="col-sm-9">
+                        <br>
+                        <b style="font-size: 40px; color: white;"> &nbspWelcome, {{name}}</b>
+                        <p style="color: white; font-size: 25px; margin-left: 3%;">Wish you have a nice day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            
+        
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <br>
+            <strong style="font-size: 30px; opacity: 0.6;">Recommendations</strong>
+            <hr>
+
+            <div style="overflow-y: scroll; height:600px;">
+                <div ng-repeat="doc in docdetails.data.Doctor_detail">
+                    <div class="card" style="background-color: rgb(47, 154, 247); border-radius: 1cm;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+
+                                </div>
+                                <div class="col-sm-11">
+                                    <p style="color: white; font-size: 35px; margin-left: 10%;">{{doc.Speciality}}</p>
+                                    <span style="color: white; font-size: 20px; margin-left: 15%;">Dr. {{doc.First_Name + " " + doc.Last_Name}}</span>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-8">
+            <br>
+            <strong style="font-size: 30px; opacity: 0.6;">Your Progress</strong>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="images/pa.gif" style="height: 100%;" alt="padash">
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img src="images/heart.png" style="width: 3cm;" alt="heart">
+                            </div>
+                            <div class="col-sm-7">
+                                <span style="margin-top: 15px; font-size: 30px;"><strong>heart</strong></span>
+                                <p style="opacity: 0.7; font-size: 20px;">75%</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">75%</div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="card" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img src="images/lungs.jpg" style="width: 2cm; margin-left: 10px; margin-top: 10px;" alt="lungs">
+                            </div>
+                            <div class="col-sm-7">
+                                <span style="margin-top: 15px; font-size: 30px;"><strong>Lungs</strong></span>
+                                <p style="opacity: 0.7; font-size: 20px;">90%</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">90%</div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <div class="card" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img src="images/stomach.png" style="width: 3cm;" alt="stomach">
+                            </div>
+                            <div class="col-sm-7">
+                                <span style="margin-top: 15px; font-size: 30px;"><strong>Stomach</strong></span>
+                                <p style="opacity: 0.7; font-size: 20px;">13%</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 13%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">13%</div>
+                                </div><br>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="card" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <img src="images/liver.png" style="width: 3cm;" alt="liver">
+                            </div>
+                            <div class="col-sm-7">
+                                <span style="margin-top: 15px; font-size: 30px;"><strong>Liver</strong></span>
+                                <p style="opacity: 0.7; font-size: 20px;">44%</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 44%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">44%</div>
+                                </div><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="sidenav sidebar1" ng-style="myStyle">
+    <center>
+        <img src="images/dashuser.png" style="width: 5cm;" alt="dashuser">
+    </center>
+    <br>
+    <p style="text-align: center; font-size: 30px;">
+        <i class="fa-solid fa-user"></i>
+        <span style="font-size: 25px;">&nbsp{{name}}</span>
+    </p>
+    <a ui-sref="6.appoi">Book Appointments</a><br>
+    <a ui-sref="6.papp">Previous Appointments</a><br>
+    <a ui-sref="6.pprescription">Previous Prescription</a><br>
+    <a ui-sref="6.phistory">Payment History</a><br>
+</div> -->
+    
+<!-- <div class="main" ui-view="patient">
+    <h1>hello</h1>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="images/pa.gif" style="height: 100%;" alt="padash">
+        </div>
+        <div class="col-sm-3">
+            <div class="card" style="width: 100%;">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="images/heart.png" style="width: 3cm;" alt="heart">
+                    </div>
+                    <div class="col-sm-7">
+                        <span style="margin-top: 15px; font-size: 30px;"><strong>heart</strong></span>
+                        <p style="opacity: 0.7; font-size: 20px;">75%</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">75%</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            <div class="card" style="width: 100%;">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="images/lungs.jpg" style="width: 2cm; margin-left: 10px; margin-top: 10px;" alt="lungs">
+                    </div>
+                    <div class="col-sm-7">
+                        <span style="margin-top: 15px; font-size: 30px;"><strong>Lungs</strong></span>
+                        <p style="opacity: 0.7; font-size: 20px;">90%</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">90%</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" style="width: 100%;">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="images/stomach.png" style="width: 3cm;" alt="stomach">
+                    </div>
+                    <div class="col-sm-7">
+                        <span style="margin-top: 15px; font-size: 30px;"><strong>Stomach</strong></span>
+                        <p style="opacity: 0.7; font-size: 20px;">13%</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 13%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">13%</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card" style="width: 100%;">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="images/liver.png" style="width: 3cm;" alt="liver">
+                    </div>
+                    <div class="col-sm-7">
+                        <span style="margin-top: 15px; font-size: 30px;"><strong>Liver</strong></span>
+                        <p style="opacity: 0.7; font-size: 20px;">44%</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 44%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">44%</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-5"><br>
+            <h2 style="text-align: center; color: blue;">Heart Rate</h2><br>
+            <center>
+                <img src="images/heartrate.gif" alt="heartrate">
+            </center>
+        </div>
+    </div>
+    <br>
+    <div class="col-sm-12">
+        <img src="images/bottompe.gif" style="width: 100%; height: 7cm;" alt="bottom">
+    </div>
+
+</div> -->

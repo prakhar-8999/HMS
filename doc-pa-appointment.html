@@ -1,0 +1,71 @@
+<h1>
+    All your pending Appointment
+</h1>
+<br><br>
+
+
+<p id="pendingapp" style="text-align: center; font-size: 30px; color: red; margin-top: 15%; display: none;"></p>
+
+
+
+
+            <input type="text" ng-model="apsearch" placeholder="Search" class="form-control"><br>
+            <h5>Search results for : {{apsearch}}</h5>
+
+
+            <!-- <input type="text" ng-model="search" placeholder="Enter some text to search" class="form-control"><br> -->
+            <br>
+            <div class="table-responsive">
+              <table class="table">
+                <tr>
+                    <th>S_No.</th>
+                    <th class="tafont">Patient Name</th>
+                    <th class="tafont">Appointment Date</th>
+                    <th class="tafont">Appointment Time</th>
+                    <th>Disease</th>
+                    <th>Appointment Status</th>
+                    <th>Approve</th>
+                    <th>Reject</th>
+                </tr>
+
+                <tr ng-repeat="data in appointment.data.Appointment_detail | filter : apsearch">
+                    <td>{{$index + 1}}</td>
+                    <td>{{data.F_Name + " " + data.L_Name}}</td>
+                    <td>{{data.App_date}}</td>
+                    <td>{{data.App_time}}</td>
+                    <td>{{data.Pat_disease}}</td>
+                    <td style="color: red;">{{data.App_Stat}}</td>
+                    <td><button type="button" class="btn btn-success" ng-click="approve(data.ID)">Approve</button></td>
+                    <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" ng-click="makeid(data.ID)" data-bs-target="#staticBackdrop">Reject</button></td>
+                </tr>
+              </table>
+            </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Specify Reason</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-sm-12">
+                <p>Give your reason here : </p>
+                <input type="text" class="form-control form-control-lg" id="reason" placeholder="Reason" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" ng-click="reject()">Reject</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+

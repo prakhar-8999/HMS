@@ -1,0 +1,124 @@
+<div class="container">
+    <strong style="font-size: 40px;">Search by Appointment Date</strong>
+    <br><br>
+        <form class="d-flex" role="search">
+            <input class="form-control form-control-lg me-2" type="date" id="da" ng-model="da" placeholder="Search by date" aria-label="Search">
+            <button class="btn btn-outline-success" type="button" ng-click="bydate()" data-bs-toggle="modal" data-bs-target="#dateModal">Search</button>
+        </form>
+    
+    
+    <br><br>
+    <strong style="font-size: 40px;">Search by Disease</strong> 
+    <br><br>
+        <form class="d-flex">
+            <!-- <input class="form-control form-control-lg me-2" type="search" placeholder="Search by Disease" aria-label="Search"> -->
+            <select name="dis" id="dis" class="form-control form-control-lg me-2" ng-model="dis" required>
+                <option value="">Select</option>
+                <option value={{d.Disea}} ng-repeat="d in disease">{{d.Disea}}</option>
+            </select>
+            <button class="btn btn-outline-success" type="submit" ng-click="bydisease()" data-bs-toggle="modal" data-bs-target="#diseaseModal">Search</button>
+        </form>
+    
+</div>
+
+<!-- Date Modal -->
+<div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Date</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="prdate">
+
+            <p id="nodate" style="text-align: center; font-size: 40px; color: red; display: none;"></p>
+
+
+            <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                      <th>S_No.</th>
+                      <th class="tafont">Appointment Data</th>
+                      <th class="tafont">Appointment Time</th>
+                      <th class="tafont">Appointed Doctor</th>
+                      <th class="tafont">Age</th>
+                      <th class="tafont">Disease</th>
+                      <th>Appointment Status</th>
+                      <th>Diagnois Report</th>
+                      <th>Prescription</th>
+                  </tr>
+  
+                  <tr ng-repeat="data in disdate">
+                      <td>{{$index + 1}}</td>
+                      <td>{{data.App_date}}</td>
+                      <td>{{data.App_time}}</td>
+                      <td>{{data.App_Doc}}</td>
+                      <td>{{data.Pat_Age}}</td>
+                      <td>{{data.Pat_disease}}</td>
+                      <td ng-style="{ 'color' : (data.App_Stat == 'Approved' || data.App_Stat == 'Visited') ? 'green' : 'red' }">{{data.App_Stat}}</td>
+                      <td>{{data.Diagnosis}}</td>
+                      <td>{{data.Prescription}}</td>
+                  </tr>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="pridate()">Print</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!-- Disease Modal -->
+<div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Disease</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="pridisease">
+            <p id="nodis" style="text-align: center; font-size: 40px; color: red; display: none;"></p>
+            <div class="table-responsive">
+                <table class="table">
+                  <tr>
+                      <th>S_No.</th>
+                      <th class="tafont">Appointment Data</th>
+                      <th class="tafont">Appointment Time</th>
+                      <th class="tafont">Appointed Doctor</th>
+                      <th class="tafont">Age</th>
+                      <th class="tafont">Disease</th>
+                      <th>Appointment Status</th>
+                      <th>Diagnois Report</th>
+                      <th>Prescription</th>
+                  </tr>
+  
+                  <tr ng-repeat="data in disreport">
+                      <td>{{$index + 1}}</td>
+                      <td>{{data.App_date}}</td>
+                      <td>{{data.App_time}}</td>
+                      <td>{{data.App_Doc}}</td>
+                      <td>{{data.Pat_Age}}</td>
+                      <td>{{data.Pat_disease}}</td>
+                      <td ng-style="{ 'color' : (data.App_Stat == 'Approved' || data.App_Stat == 'Visited') ? 'green' : 'red' }">{{data.App_Stat}}</td>
+                      <td>{{data.Diagnosis}}</td>
+                      <td>{{data.Prescription}}</td>
+                  </tr>
+                </table>
+            </div>
+
+
+
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="prid()">Print</button>
+        </div>
+      </div>
+    </div>
+</div>

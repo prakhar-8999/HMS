@@ -1,0 +1,105 @@
+<br><h1 style="text-align: center; color: rgb(80, 80, 248);">Previous Appointments</h1><br><br>
+
+<p id="noprev" style="font-size: 40px; margin-top: 18%; text-align: center; color: red; display: none;"></p>
+
+<div id="prepre">
+
+<div class="col-sm-12">
+    <input type="text" class="form-control" placeholder="Search" ng-model="apsearch">
+</div>
+<br><br>
+<h3>Search reasults for : {{apsearch}}</h3>
+<br><br>
+<div class="table-responsive">
+    <table class="table">
+      <tr>
+          <th>S_No.</th>
+          <th class="tafont">Appointment Data</th>
+          <th class="tafont">Appointment Time</th>
+          <th class="tafont">Appointed Doctor</th>
+          <th class="tafont">Disease</th>
+          <th class="tafont">Payment Status</th>
+          <th>Appointment Status</th>
+          <th>Make Payment</th>
+          <th>Update</th>
+      </tr>
+
+      <tr ng-repeat="his in aphistory.data.Appointment_Hist | filter : apsearch">
+          <td>{{$index + 1}}</td>
+          <td>{{his.Appointment_date}}</td>
+          <td>{{his.Appointment_time}}</td>
+          <td>{{his.Appointed_Doctor}}</td>
+          <td>{{his.Patient_Disease}}</td>
+          <td id="{{$index}}" ng-style="{ 'color' : (his.Payment_Status == 'Successful') ? 'green' : 'red' }"><strong>{{his.Payment_Status}}</strong></td>
+          <td ng-style="{ 'color' : (his.Appointment_Status == 'Approved' || his.Appointment_Status == 'Visited') ? 'green' : 'red' }"><strong>{{his.Appointment_Status}}</strong></td>
+          <td>
+            <button type="button" ng-click="makepay(his.id)" class="btn btn-success" ng-disabled={{his.Payment_Status!="Pending"}} style="width: 100%;">Pay</button>
+          </td>
+          <td>
+            <button type="button" ng-click="openmod(his.id)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#update" ng-disabled="{{his.Appointment_Status == 'Approved' || his.Appointment_Status == 'Visited' || his.Appointment_Status == 'Rejected'}}" style="width: 100%;">Update</button>
+          </td>
+      </tr>
+    </table>
+</div>
+
+</div>
+<!-- Upadate Modal -->
+<div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Update Appointment</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="col-sm-12">
+              <label for="date" style="font-size: 23px;" class="form-label"><strong>New Date<b>*</b></strong></label>
+              <input type="date" id="date" class="form-control form-control-lg">
+          </div>
+          <br>
+          <div class="col-sm-12">
+              <label for="time" style="font-size: 23px;" class="form-label"><strong>Time Slot&nbsp<b>*</b></strong></label>
+              <select name="time" id="time" ng-model="time" class="form-control form-control-lg" required>
+                  <option value="">Select</option>
+                  <option value="8am - 10am">8am - 10am</option>
+                  <option value="10am - 12am">10am - 12am</option>
+                  <option value="12pm - 01pm">12pm - 01pm</option>
+                  <option value="3pm - 5pm">3pm - 5pm</option>
+                  <option value="6pm - 8pm">6pm - 8pm</option>
+              </select> 
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-info" ng-click="update()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" ng-repeat="his in aphistory.data.Appointment_Hist">
+        <div class="card" style="height: 100%;">
+            <div class="card-body">
+                <h2 style="text-align: center;" class="card-title">Appointment Details</h2>
+                <br>
+                <p>Appointed Doctor : {{his.Appointed_Doctor}}</p>
+                <p>Appointment Date : {{his.Appointment_date}}</p>
+                <p>Slot allocated : {{his.Appointment_time}}</p>
+                <p>Patient Disease : {{his.Patient_Disease}}</p>
+                <p>Payment Status : <span ng-style="{ 'color' : (his.Payment_Status == 'Successful') ? 'green' : 'red' }"><strong>{{his.Payment_Status}}</strong></span></p>
+                <p>Appointment Status : <span ng-style="{'color' : (his.Appointment_Status == 'Visited' || his.Appointment_Status == 'Approved') ? 'green' : 'red'}"><strong>{{his.Appointment_Status}}</strong></span></p>
+                <p ng-show="{{his.Appointment_Status == 'Rejected'}}">Rejection Reason : <span style="color: red;"><strong>{{his.App_Rej_Reason}}</strong></span></p>
+                <button type="button" ng-click="openmod(his.id)" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#update" ng-show="{{his.Appointment_Status == 'Pending'}}">Update</button>
+                <button type="button" style="float: right;" ng-click="makepay(his.id)" class="btn btn-success btn-lg" ng-show={{his.Payment_Status=="Pending"}}>Make Payment</button>
+            </div>
+
+
+            
+
+
+        </div>
+    </div>
+</div> -->

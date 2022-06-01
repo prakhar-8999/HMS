@@ -1,0 +1,143 @@
+
+    <h1 style="color: green; text-align: center;">Upcomming Appointments</h1><br>
+
+    <p id="appppp" style="text-align: center; font-size: 40px; margin-top: 25%; color: red; display: none;"></p>
+
+
+    <div class="container">
+        <div ng-repeat="appro in doaps">
+            <div class="card" >
+                <div class="card-header">
+                    <span style="font-size: 30px;"> Mr. {{appro.F_Name + " " + appro.L_Name}}</span>
+                </div>
+                <div class="card-body">
+                    <p class="approval">Appointment Status : &nbsp&nbsp&nbsp<i style="color: green;" class="fa-solid fa-circle-check"></i> <span style="color: green;">approved</span></p>
+                    <!-- <div>
+                        <span style="float: right; font-size: larger;">Appointment Status :<span style="color: green;">Approved</span></span>
+                    </div><br> -->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Basic Information</h3><br>
+                                    <p class="app"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{appro.M_No}}</hp>
+                                    <p class="app"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbsp{{appro.email}}</p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-sm-6">
+                            
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Appointment Details</h3>
+                                    <br>
+                                    <p class="app">Appointment Date : {{appro.App_date}}</p>
+                                    <p class="app">Appointment Time : {{appro.App_time}}</p>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <button type="button" style="float: right;" class="btn btn-success btn-lg" ng-click="getdata(appro.ID)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Generate Prescription</button>
+                    
+                    
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <!-- <h3 class="modal-title" id="staticBackdropLabel">Prescription Form</h3> -->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+
+                            <div id={{appro.ID}}>
+
+
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <img src="images/logo.png" class="presimg" alt="logo"><br><br>
+                                            
+                                                <h5><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbspinfo@Lifecare.com</h5>
+
+                                                <h5><i class="fa-solid fa-phone"></i>&nbsp&nbsp86-1238-456</h5><br>
+    
+                                            
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h2 class="docde">Dr. {{docname}} <span style="font-size: 17px;">{{"(" + qua + ")"}}</span></h2>
+                                            <h5 class="docde">{{spe}}</h5>
+                                            <!-- <h5 class="docde">{{qua}}</h5> -->
+                                            <h5 class="docde"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp&nbsp{{em}}</h5>
+                                            <h5 class="docde"><i class="fa-solid fa-phone"></i>&nbsp&nbsp{{ph}}</h5><br>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <!-- <label for="paname" style="font-size: 20px; color: rgb(72, 160, 255);">Name : </label> -->
+                                                <!-- <input type="text" id="paname" class="form-control form-control-lg" value={{sal}}&nbsp{{fullname}} disabled> -->
+                                                <h3 style="font-size: 30px">{{sal}}&nbsp{{fullname}}<span style="font-size: 25px;">&nbsp&nbsp{{"(" + us + ")"}}</span></h3> 
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <!-- <label for="paname" style="font-size: 20px; color: rgb(72, 160, 255);">Name : </label>
+                                                <input type="text" class="form-control form-control-lg" value={{gen}} disabled> -->
+                                                <h5 class="docde">{{gen + " ," }}&nbsp{{age + "  years"}}</h5>
+                                                
+                                            </div>
+
+                                        </div>
+                                        <hr>
+                                        <p style="font-size: 20px; float: right;" class="docde"><strong>Date : {{da}}</strong></p>
+
+                                        
+                                        <br><br>
+                                        <div class="col-sm-12">
+                                            <label for="digo" style="color: black; font-size: 30px;"><strong><li>Diagnosis</li></strong></label>
+                                            <textarea name="digo" id="digo" class="form-control text-a" style="height: 5cm;"></textarea>
+                                        </div>
+                                        <br>
+                                        <div class="col-sm-12">
+                                            <label for="press" style="color: black; font-size: 30px;"><strong><li>Prescription</li></strong></label>
+                                            <textarea name="press" id="press" class="form-control" style="height: 8cm;"></textarea>
+                                        </div>
+                                        
+                                    </form>
+
+
+
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" ng-click="generate()">Generate</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <!-- <h5 class="card-title">Special title treatment</h5> -->
+                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+            <br><br>
+        </div>
+        
+    </div>
+
+
+
+
+
