@@ -12,8 +12,6 @@
                       <p class="card-title" style="text-align: center; margin-top: 5cm; font-size: 52px;">We Are Always Here To Serve You...</p>
                     </div>
                 </div>
-                <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" /> -->
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
@@ -29,22 +27,81 @@
                     <div class="form-outline mb-4">
                       <label for="username" class="form-label"><strong>USERNAME <b>*</b></strong></label>
                       <!-- <label class="form-label" for="username">Email address</label> -->
-                      <input type="text" id="username" ng-model="patientuser" class="form-control form-control-lg" required>
+                      <input type="text" id="username" ng-model="patientuser" class="form-control form-control-lg">
                     </div>
-  
+                    
                     <div class="form-outline mb-4">
                       <label class="form-label" for="password"><strong>PASSWORD <b>*</b></strong></label>
-                      <input type="password" id="password" ng-model="patientpass" class="form-control form-control-lg" required>
+                      <input type="password" id="password" ng-model="patientpass" class="form-control form-control-lg">
                     </div>
-  
+
                     <div class="pt-1 mb-4">
                       <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                     </div>
-  
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a ui-sref="1"
-                        style="color: #393f81;">Register here</a></p>
+
                   </form>
-  
+                  
+
+                  <!--<p>
+                  <button class="pb-lg-2" style="background: none; border: none; color: #393f81;" data-bs-toggle="modal" data-bs-target="#passwordchange">Forget Password</button><br>
+
+                  </p> -->
+                  <br><br>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a ui-sref="1" style="color: #393f81;">Register here</a></p>
+
+
+
+
+                  <!-- Modal -->
+                  <!--<div class="modal fade" id="passwordchange" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="exampleModalLabel" >Password Reset</h3>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                          <div id="userotp">
+                            <label for="chanpass" style="color:black; padding-bottom: 10px; padding-left: 2px; font-size: 20px;"><strong>Username</strong></label><br>
+                            <input type="text" id="chanpass" class="form-control"><br>
+                            <button type="button" style="float: right;" class="btn btn-success" ng-click="sendotp()">Send OTP</button><br>
+                          </div>
+                          
+                          <div id="otpsubmit" style="display: none;">
+                            <label for="otp" style="color:black; padding-bottom: 10px; padding-left: 2px; font-size: 20px;"><strong>Enter OTP</strong></label><br>
+                            <input type="text" style="justify-content: center;" class="form-control" id="otp"><br>
+                            <button type="button" style="float: right;" class="btn btn-success" ng-click="matchotp()">Submit OTP</button><br>
+                          </div>
+                          <div id="repass" style="display: none;">
+                            <label for="newpa" style="color:black; padding-bottom: 10px; padding-left: 2px; font-size: 20px;"><strong>New Password</strong></label><br>
+                            <input type="text" style="justify-content: center;" class="form-control" id="newpa"><br>
+                            <label for="newcpas" style="color:black; padding-bottom: 10px; padding-left: 2px; font-size: 20px;"><strong>Confirm Password</strong></label><br>
+                            <input type="text" style="justify-content: center;" class="form-control" id="newcpas"><br>
+                            <button type="button" style="float: right;" class="btn btn-success" ng-click="changepassword()">Change Password</button><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
               </div>
             </div>

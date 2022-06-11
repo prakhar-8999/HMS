@@ -1,18 +1,96 @@
 <br>
 <!-- <h1 style="text-align: center; color: blue;">Profile</h1> -->
 
+
 <div class="container pro">
+    <br>
+    <div style="padding-left: 15%;">
+        <h1>Profile</h1>
+        <br>
+        <label for="nam" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Name</strong></label><br>
+        <input type="text" ng-model="name" name="nam" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" id="nnnnn" disabled>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="age" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Age</strong></label><br>
+                <input type="text" ng-model="agee" name="age" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+                <br>
+            </div>
+            <div class="col-sm-6">
+                <label for="gen" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Gender</strong></label><br>
+                <input type="text" ng-model="gen" name="gen" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+            </div>
+        </div>
+        <br>
+        <label for="phone" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Phone</strong></label><br>
+        <input type="text" ng-model="phone" name="phone" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+        <br>
+        <label for="email" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Email</strong></label><br>
+        <input type="text" ng-model="email" name="email" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+        <br>
+        <label for="address" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Address</strong></label><br>
+        <textarea ng-model="address" name="address" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 20px;" disabled></textarea>
+        <br>
+        <label for="govid" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Government ID</strong></label><br>
+        <input type="text" ng-model="govid" name="govid" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+        <br>
+        <label for="govnum" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Government ID Number</strong></label><br>
+        <input type="text" ng-model="govnum" name="govnum" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" disabled>
+        <br>
+        <hr><br><br>
+
+        <h2>Change Password</h2><br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="currpass" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Current Password</strong></label><br>
+                <input type="password" ng-model="currpass" name="currpass" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" placeholder="Current Password">
+            </div>
+        </div>
+        
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="newpass" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Current Password</strong></label><br>
+                <input type="password" ng-model="newpass" name="newpass" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" placeholder="New Password"><br>
+            </div>
+            <div class="col-sm-6">
+                <label for="confpass" style="color:black; padding-bottom: 10px; padding-left: 5px;"><strong>Current Password</strong></label><br>
+                <input type="password" ng-model="confpass" name="confpass" class="form-control" style="background-color: rgb(216, 216, 216); border-radius: 2cm;" placeholder="Confirm Password">
+            </div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-outline-dark" ng-click="changepassword()">Change Password</button>
+        <br><br><br><br>
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container pro">
     <div class="row">
         <div class="col-sm-6">
-            <!-- <label for="lname" class="form-label">NAME</label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>NAME</strong></p>
-            <input type="text" class="form-control" ng-model="name" id="name" disabled>
+            <input type="text" class="form-control" ng-model="name" id="name" style="background-color: #ebebeb; border-radius: 2cm;" disabled>
         </div>
         <div class="col-sm-6">
-            <!-- <label for="Uname" class="form-label"><strong>USERNAME <b>*</b></strong></label> -->
         <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>USERNAME</strong></p>
 
-            <input type="text" class="form-control" ng-model="username" id="Uname" disabled>
+            <input type="text" class="form-control" ng-model="username" style="background-color: #ebebeb; border-radius: 2cm;" id="Uname" disabled>
             
         </div>
     </div>
@@ -21,31 +99,22 @@
 
     <div class="row">   
         <div class="col-sm-6">
-            <!-- <label for="DOB" class="form-label"><strong>DOB <b>*</b></strong></label> -->
         <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>DOB</strong></p>
 
-            <input type="text" class="form-control" ng-model="dob" id="DOB" disabled>
+            <input type="text" class="form-control" ng-model="dob" style="background-color: #ebebeb; border-radius: 2cm;" id="DOB" disabled>
            
         </div>
         <div class="col-sm-3">
-            <!-- <label for="height" class="form-label"><strong>HEIGHT</strong></label><br> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>HEIGHT</strong></p>
-
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="height" id="height" disabled>
-                <div class="input-group-text">cm</div>
-            </div>
+            <input type="text" class="form-control" ng-model="height" style="background-color: #ebebeb; border-radius: 2cm;" id="height" disabled>
+            
             
             
         </div>
         <div class="col-sm-3">
-            <!-- <label for="weight" class="form-label"><strong>WEIGHT</strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>WEIGHT</strong></p>
-
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="weight" id="weight" disabled>
-                <div class="input-group-text">kg</div>
-            </div>
+            <input type="text" class="form-control" ng-model="weight"  style="background-color: #ebebeb; border-radius: 2cm;" id="weight" disabled>
+            
             
         </div>
     </div>
@@ -54,23 +123,20 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <!-- <label for="email" class="form-label"><strong>EMAIL <b>*</b></strong></label> -->
         <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>EMAIL</strong></p>
 
-            <input type="email" class="form-control" ng-model="email" id="email" disabled>
+            <input type="email" class="form-control" ng-model="email" style="background-color: #ebebeb; border-radius: 2cm;" id="email" disabled>
            
         </div>
         <div class="col-sm-3">
-            <!-- <label for="phone" class="form-label"><strong>PHONE <b>*</b></strong></label> -->
         <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>PHONE</strong></p>
 
-            <input type="text" class="form-control" ng-model="phone" id="phone" disabled>
+            <input type="text" class="form-control" ng-model="phone" style="background-color: #ebebeb; border-radius: 2cm;" id="phone" disabled>
             
         </div>
         <div class="col-sm-3">
-            <!-- <label for="gen" class="form-label"><strong>GENDER <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>GENDER</strong></p>
-            <input type="text" class="form-control" name="gen" id="gen" ng-model="gen" disabled>
+            <input type="text" class="form-control" name="gen" id="gen" style="background-color: #ebebeb; border-radius: 2cm;" ng-model="gen" disabled>
         </div>
     </div>
 
@@ -78,16 +144,14 @@
 
     <div class="row">
         <div class="col-sm-8">
-            <!-- <label for="add" class="form-label"><strong>ENTER YOUR FULL ADDRESS <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>ADDRESS</strong></p>
 
-            <input type="text" class="form-control" ng-model="address" id="add" disabled>
+            <input type="text" class="form-control" ng-model="address" style="background-color: #ebebeb; border-radius: 2cm;" id="add" disabled>
             
         </div>
         <div class="col-sm-4">
-            <!-- <label for="blood" class="form-label"><strong>BLOOD GROUP</strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>BLOOD GROUP</strong></p>
-            <input type="text" name="blood" id="blood" ng-model="blood" class="form-control" disabled>
+            <input type="text" name="blood" id="blood" ng-model="blood" style="background-color: #ebebeb; border-radius: 2cm;" class="form-control" disabled>
         </div>
     </div>
     
@@ -95,29 +159,25 @@
 
     <div class="row">
         <div class="col-sm-3">
-            <!-- <label for="country" class="form-label"><strong>COUNTRY <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>COUNTRY</strong></p>
-            <input type="text" name="country" id="country" ng-model="country" class="form-control" disabled>
+            <input type="text" name="country" id="country" ng-model="country" style="background-color: #ebebeb; border-radius: 2cm;" class="form-control" disabled>
             
            
         </div>
         <div class="col-sm-3">
-            <!-- <label for="state" class="form-label"><strong>STATE <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>STATE</strong></p>
-            <input type="text" name="state" id="state" ng-model="state" class="form-control" disabled>
+            <input type="text" name="state" id="state" ng-model="state" style="background-color: #ebebeb; border-radius: 2cm;" class="form-control" disabled>
         </div>
         <div class="col-sm-3">
-            <!-- <label for="city" class="form-label"><strong>CITY <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>CITY</strong></p>
 
-            <input type="text" class="form-control" ng-model="city" id="city" disabled>
+            <input type="text" class="form-control" ng-model="city" style="background-color: #ebebeb; border-radius: 2cm;" id="city" disabled>
             
         </div>
         <div class="col-sm-3">
-            <!-- <label for="pincode" class="form-label"><strong>PINCODE <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>PINCODE</strong></p>
 
-            <input type="text" class="form-control" ng-model="pin" id="pincode" disabled>
+            <input type="text" class="form-control" ng-model="pin" style="background-color: #ebebeb; border-radius: 2cm;" id="pincode" disabled>
             
         </div>
     </div>
@@ -126,16 +186,14 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <!-- <label for="Gov-id" class="form-label"><strong>GOVERNMENT ID <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>GOVERNMENT ID</strong></p>
-            <input type="text" name="Gov-id" id="Gov-id" ng-model="govid" class="form-control" disabled>
+            <input type="text" name="Gov-id" id="Gov-id" ng-model="govid" style="background-color: #ebebeb; border-radius: 2cm;" class="form-control" disabled>
             
         </div>
         <div class="col-sm-6">
-            <!-- <label for="govnum" class="form-label"><strong>GOVERNMENT ID NO. <b>*</b></strong></label> -->
             <p style="color: rgb(74, 74, 238); font-size: 25px;"><strong>GOVERNMENT ID NO.</strong></p>
 
-            <input type="text" class="form-control" ng-model="govnum" id="govnum" disabled>
+            <input type="text" class="form-control" ng-model="govnum" style="background-color: #ebebeb; border-radius: 2cm;" id="govnum" disabled>
             
         </div>
     </div>
@@ -146,8 +204,8 @@
     <br>
     <div class="col-sm-12">
         <label for="medi" class="form-label"><strong>Any Medical History</strong></label>
-        <textarea name="medi" id="medi" ng-model="medi" cols="30" rows="4" class="form-control" disabled></textarea>
+        <textarea name="medi" id="medi" ng-model="medi" cols="30" rows="4" style="background-color: #ebebeb; border-radius: 0.5cm;" class="form-control" disabled></textarea>
         <br><br>
     </div>
 
-</div>
+</div> -->

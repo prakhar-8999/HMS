@@ -22,7 +22,7 @@
         <th class="tafont">Mobile Number</th>
         <th class="tafont">Patient info</th>
         <th>Appointments</th>
-        <th>Delete Patient<th>
+        <!-- <th>Delete Patient<th> -->
     </tr>
 
     <tr ng-repeat="data in pasearch | filter : search">
@@ -34,9 +34,9 @@
         <td>{{data.Mobile_Number}}</td>
         <td><button type="button" class="btn btn-success" style="width: 100%;" ng-click="paview(data.id)" data-bs-toggle="modal" data-bs-target="#patientDetails">View</button></td>
         <td><button type="button" class="btn btn-info" style="width: 100%;" ng-click="apshow(data.id)" data-bs-toggle="modal" data-bs-target="#Appointment">Show</button></td>
-        <td><button type="button" class="btn btn-danger" style="width: 100%;" ng-click="dele(data.id)">Delete</button></td>
+        <!-- <td><button type="button" class="btn btn-danger" style="width: 100%;" ng-click="dele(data.id)">Delete</button></td> -->
     </tr>
-</table>
+  </table>
 </div>
 
 
@@ -92,14 +92,14 @@
         </div>
         <div class="modal-body">
             
-
-            <input type="text" ng-model="apsearch" placeholder="Search" class="form-control"><br>
-            <h5>Search results for : {{apsearch}}</h5>
+            <p style="font-size: 30px; color: red; text-align: center; display: none;" id="nopreapp">No Appointment Details Found</p>
+            <input type="text" ng-model="apsearch" placeholder="Search" class="form-control" id="preappoi"><br>
+            <h5 id="preh5">Search results for : {{apsearch}}</h5>
 
 
             <!-- <input type="text" ng-model="search" placeholder="Enter some text to search" class="form-control"><br> -->
             <br>
-            <div class="table-responsive">
+            <div class="table-responsive" id="preta">
               <table class="table">
                 <tr>
                     <th>S_No.</th>
