@@ -12,15 +12,14 @@
     <table class="table">
       <tr>
           <th>S_No.</th>
-          <th class="tafont">Patient Name</th>
-          <th class="tafont">Appointment Date</th>
-          <th class="tafont">Appointment Time</th>
-          <th class="tafont">Appointed Doctor</th>
-          <th class="tafont">Patient Disease</th>
-          <th class="tafont">Appointment Status</th>
-          <th style="text-align: center;">Action</th>
-          <!-- <th class="tafont">Reject</th> -->
-          <!-- <th class="tafont">Approve</th> -->
+          <th>Patient Name</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+          <th>Appointed Doctor</th>
+          <th>Patient Disease</th>
+          <th>Appointment Status</th>
+          <th>Approve</th>
+          <th>Reject</th>
       </tr>
   
       <tr ng-repeat="r in repend | filter : search">
@@ -32,8 +31,10 @@
           <td>{{r.Pat_disease}}</td>
           <td style="color: red;"><strong>{{r.App_Stat}}</strong></td>
           <td>
-            <button type="button" class="btn btn-danger" ng-click="rej(r.ID)" data-bs-toggle="modal" data-bs-target="#reject">Reject</button>
             <button type="button" class="btn btn-success" ng-click="appro(r.ID)">Approve</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" ng-click="rej(r.ID)" data-bs-toggle="modal" data-bs-target="#reject">Reject</button>
           </td>
       
         

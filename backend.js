@@ -360,7 +360,7 @@ app.controller('patient-login',function($scope,$http,$window,$rootScope,$state){
     
     $scope.patientlogin = function() {
 
-        if($scope.patientuser == undefined || $scope.patientpass == undefined){
+        if($scope.patientuser == undefined || $scope.patientpass == undefined || $scope.patientuser == '' || $scope.patientpass == ''){
             Swal.fire({
                 icon: 'warning',
                 title: 'Empty Field Not Allowed',
@@ -538,45 +538,52 @@ app.controller('Receptionist-login',function($scope,$http,$state){
     }
     $scope.relogin = function(){
 
-        var redata = {
-            'Username':$scope.username,
-            'Password':$scope.password
-        }
-
-        $http({
-            method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/login',
-            data:redata
-        })
-        .then(function (response){
-            if (response.status == 200){
-                Swal.fire({
-                    icon: 'success',
-                    title: response.data.message,
-                    showConfirmButton: false,
-                    timer: 1000
-                  })
-                refom.reset();
-                let list = JSON.parse(localStorage.getItem('re-token'));
-                if (list === null){
-                    relist = [];
-                }
-                else{
-                    relist = list;
-                }
-                relist.push(response.data.Token)
-                localStorage.setItem('re-token',JSON.stringify(relist));
-                $state.go('8')
-            }
-                    
-        })
-        .catch((error) => {
+        if($scope.username == undefined || $scope.password == undefined || $scope.username == '' || $scope.password == ''){
             Swal.fire({
-                icon: 'error',
-                title: error.data.message,
+                icon: 'warning',
+                title: 'EMPTY FIELD !!!!',
             })
-        })
-
+        }
+        else{
+            var redata = {
+                'Username':$scope.username,
+                'Password':$scope.password
+            }
+    
+            $http({
+                method:'POST',
+                url:'http://10.21.84.38:8000/Receptionist/login',
+                data:redata
+            })
+            .then(function (response){
+                if (response.status == 200){
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.message,
+                        showConfirmButton: false,
+                        timer: 1000
+                      })
+                    refom.reset();
+                    let list = JSON.parse(localStorage.getItem('re-token'));
+                    if (list === null){
+                        relist = [];
+                    }
+                    else{
+                        relist = list;
+                    }
+                    relist.push(response.data.Token)
+                    localStorage.setItem('re-token',JSON.stringify(relist));
+                    $state.go('8')
+                }
+                        
+            })
+            .catch((error) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: error.data.message,
+                })
+            })
+        }
 
     }
     
@@ -589,60 +596,65 @@ app.controller('DoctorLo',function($scope,$http,$window,$state){
     document.getElementById('head').style.display = 'block';
     document.getElementById('nav').style.display = 'block';
     document.getElementById('foot').style.display = 'block';
-    $scope.$parent.footer=false
     let list = JSON.parse(localStorage.getItem("DO-TOKEN"));
     if (list != null){
         $window.location.href = '#!doctor-dashboard'
     }
     $scope.dologin = function(){
 
-
-        var doinfo = {
-            'Username':$scope.username,
-            'Password':$scope.password
-        }
-
-        $http({
-            method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/login',
-            data:doinfo
-        })
-        .then(function (response){
-            if (response.status == 200){
-                Swal.fire({
-                    icon: 'success',
-                    title: response.data.message,
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-                  
-                dofom.reset();
-                let list = JSON.parse(localStorage.getItem("DO-TOKEN"));
-                if (list === null){
-                    doctlist = [];
-                }
-                else{
-                    doctlist = list;
-                }
-                
-                doctlist.push(response.data.Token);
-                localStorage.setItem('DO-TOKEN',JSON.stringify(doctlist));
-                $window.location.href='#!doctor-dashboard'
-
-
-            }
-                   
-                    
-        })
-        .catch(function(error){
+        if($scope.username == undefined || $scope.password == undefined || $scope.username == '' || $scope.password == ''){
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: error.data.message,
+                icon: 'warning',
+                title: 'EMPTY FIELD !!!!'
             })
-        })
+        }
+        else{
+            var doinfo = {
+                'Username':$scope.username,
+                'Password':$scope.password
+            }
+    
+            $http({
+                method:'POST',
+                url:'http://10.21.84.38:8000/Doctor/login',
+                data:doinfo
+            })
+            .then(function (response){
+                if (response.status == 200){
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.message,
+                        showConfirmButton: false,
+                        timer: 1000
+                    })
+                      
+                    dofom.reset();
+                    let list = JSON.parse(localStorage.getItem("DO-TOKEN"));
+                    if (list === null){
+                        doctlist = [];
+                    }
+                    else{
+                        doctlist = list;
+                    }
+                    
+                    doctlist.push(response.data.Token);
+                    localStorage.setItem('DO-TOKEN',JSON.stringify(doctlist));
+                    $window.location.href='#!doctor-dashboard'
+    
+    
+                }
+                       
+                        
+            })
+            .catch(function(error){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: error.data.message,
+                })
+            })
+        }
         
-
     }
 });
 
@@ -931,7 +943,7 @@ app.controller('appointment',function($scope,$http){
     var configdate = function(){
         var tf = new Date();
         var today = new Date().toISOString().slice(0,10);
-        var newDate = new Date(tf.setMonth(tf.getMonth()+1)).toISOString().slice(0,10);
+        var newDate = new Date(tf.setMonth(tf.getMonth()+2)).toISOString().slice(0,10);
         document.getElementById("date").setAttribute('min', today);
         document.getElementById("date").setAttribute('max', newDate);
     }
@@ -1218,30 +1230,6 @@ app.controller('p-history',function($http,$scope){
 app.controller('p-profile',function($scope,$http){
     let list = JSON.parse(localStorage.getItem("TOKEN"));
 
-    // function color(){
-    //     document.getElementById('nnnnn').style.backgroundColor = 'white'
-    // }
-
-
-    // document.getElementById('nnnnn').addEventListener('click',function(){
-    //     if(document.getElementById('nnnnn').style.backgroundColor == 'white')
-    //     {
-    //         window.addEventListener('click',function(){
-
-    //             console.log('print')
-    //             document.getElementById('nnnnn').style.backgroundColor = 'rgb(158, 158, 158)'
-    //         })
-    //     }
-    //     document.getElementById('nnnnn').style.backgroundColor = 'white'
-        
-
-    // })
-    // window.addEventListener('click',function(){
-
-    //     console.log('print')
-    //     document.getElementById('nnnnn').style.backgroundColor = 'rgb(158, 158, 158)'
-    // })
-
     var token = {
         'Token': list[0]
     }
@@ -1253,7 +1241,7 @@ app.controller('p-profile',function($scope,$http){
     })
     .then(function (response){
         if (response.status == 200){
-            console.log(response)
+            // console.log(response)
             $scope.name = response.data.User_detail.First_Name + " " + response.data.User_detail.Last_Name;
             $scope.username = response.data.User_detail.Username;
             $scope.Gender = response.data.User_detail.Gender;
@@ -1296,24 +1284,44 @@ app.controller('p-profile',function($scope,$http){
             })
         }
         else{
-            var passchan = {
-                'Token':list[0],
-                '':$scope.currpass,
-                '':$scope.newpass,
-                '':$scope.confpass
+            if($scope.newpass != $scope.confpass){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'PASSWORD MISMATCH !!!!'
+                })
             }
-
-            $http({
-                method:'POST',
-                url:'',
-                data:passchan
-            })
-            .then(function(response){
-                console.log(response)
-            })
-            .catch(function(error){
-                console.log(error)
-            })
+            else{
+                var passchan = {
+                    'Token':list[0],
+                    'Previous_Password':$scope.currpass,
+                    'Password':$scope.newpass,
+                    'C_Password':$scope.confpass
+                }
+    
+                $http({
+                    method:'POST',
+                    url:'http://10.21.84.38:8000/Patient/Pass/Change',
+                    data:passchan
+                })
+                .then(function(response){
+                    console.log(response)
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.message
+                    })
+                    .then(function(){
+                        passchange.reset()
+                    })
+                })
+                .catch(function(error){
+                    console.log(error)
+                    Swal.fire({
+                        icon: 'error',
+                        title: error.data.message
+                    })
+                })
+            }
+            
         }
     }
 
@@ -1792,11 +1800,15 @@ app.controller('doc-book-app',function($scope,$http){
     var configdate = function(){
         var tf = new Date();
         var today = new Date().toISOString().slice(0,10);
-        var newDate = new Date(tf.setMonth(tf.getMonth()+1)).toISOString().slice(0,10);
+        console.log(today)
+        var newDate = new Date(tf.setMonth(tf.getMonth()+2)).toISOString().slice(0,10);
+        console.log(newDate)
         document.getElementById("date").setAttribute('min', today);
         document.getElementById("date").setAttribute('max', newDate);
     }
     configdate();
+
+
     let list = JSON.parse( localStorage.getItem('DO-TOKEN'));
     var to = list[0]
     var docapbo = {
@@ -2232,7 +2244,7 @@ app.controller('re-ap-book',function($scope,$http){
     var configdate = function(){
         var tf = new Date();
         var today = new Date().toISOString().slice(0,10);
-        var newDate = new Date(tf.setMonth(tf.getMonth()+1)).toISOString().slice(0,10);
+        var newDate = new Date(tf.setMonth(tf.getMonth()+2)).toISOString().slice(0,10);
         document.getElementById("date").setAttribute('min', today);
         document.getElementById("date").setAttribute('max', newDate);
     }
@@ -2717,6 +2729,13 @@ app.controller('Patient-database',function($scope,$http){
 
 
 app.controller('report',function($scope,$http){
+
+
+    var configdate = function(){
+        var today = new Date().toISOString().slice(0,10);
+        document.getElementById("da").setAttribute('max', today);
+    }
+    configdate();
     $http({
         method:'POST',
         url:'http://10.21.84.38:8000/Patient/Disease',
