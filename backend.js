@@ -1,5 +1,5 @@
 var app = angular.module('app',['ui.router']);
-
+const baseurl = 'https://a489-103-77-186-50.in.ngrok.io'
 app.config(['$stateProvider','$urlRouterProvider',function($stateProvider){
     $stateProvider
     .state('1',{
@@ -243,6 +243,7 @@ app.controller('patient-register',function($scope,$http){
         if (
             $scope.fname == undefined ||
             $scope.lname == undefined ||
+            $scope.username == undefined ||
             $scope.dob == undefined ||
             $scope.email == undefined ||
             $scope.pass1 == undefined ||
@@ -251,7 +252,6 @@ app.controller('patient-register',function($scope,$http){
             $scope.gen == undefined ||
             $scope.govid == undefined ||
             $scope.govnum == undefined ||
-            $scope.blood == undefined ||
             $scope.address == undefined ||
             $scope.city == undefined ||
             $scope.state == undefined ||
@@ -267,9 +267,7 @@ app.controller('patient-register',function($scope,$http){
             if ($scope.pass1 != $scope.pass2){
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'Password Mismatch....',
-                    footer: '<a href="">Get Help</a>'
+                    title: 'PASSWORD MISMATCH....',
                 })
             }
             else{
@@ -316,7 +314,7 @@ app.controller('patient-register',function($scope,$http){
                 
                 $http({
                     method:'POST',
-                    url:'http://10.21.84.38:8000/Patient/registration',
+                    url:baseurl + '/Patient/registration',
                     data:data
                 })
                 .then(function (response){
@@ -371,14 +369,15 @@ app.controller('patient-login',function($scope,$http,$window,$rootScope,$state){
                 'Username':$scope.patientuser,
                 'Password':$scope.patientpass
             }
-    
-    
+            // http://10.21.84.241:8000/Patient/login
+            // http://10.21.85.97:8000/medera/patient/login
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/login',
+                url: baseurl + '/Patient/login',
                 data:logininfo
             })
             .then(function (response){
+                console.log(response)
                 if (response.status == 200){
                     Swal.fire({
                         position: 'center',
@@ -435,7 +434,7 @@ app.controller('patient-login',function($scope,$http,$window,$rootScope,$state){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/SMS',
+                url: baseurl + '/Patient/SMS',
                 data:us
             })
             .then(function(response){
@@ -472,7 +471,7 @@ app.controller('patient-login',function($scope,$http,$window,$rootScope,$state){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/OTP/Verification',
+                url: baseurl + '/Patient/OTP/Verification',
                 data:otp
             })
             .then(function(response){
@@ -505,7 +504,7 @@ app.controller('patient-login',function($scope,$http,$window,$rootScope,$state){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/Pass/Change',
+                url: baseurl + '/Patient/Pass/Change',
                 data:changepass
             })
             .then(function(response){
@@ -552,7 +551,7 @@ app.controller('Receptionist-login',function($scope,$http,$state){
     
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Receptionist/login',
+                url: baseurl + '/Receptionist/login',
                 data:redata
             })
             .then(function (response){
@@ -610,17 +609,19 @@ app.controller('DoctorLo',function($scope,$http,$window,$state){
         }
         else{
             var doinfo = {
-                'Username':$scope.username,
-                'Password':$scope.password
+                'username':$scope.username,
+                'password':$scope.password
             }
     
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Doctor/login',
+                url: 'https://10.21.84.241:8000' + '/Drive/login',
+                withCredentials: true,
                 data:doinfo
             })
             .then(function (response){
                 if (response.status == 200){
+                    console.log(response)
                     Swal.fire({
                         icon: 'success',
                         title: response.data.message,
@@ -672,7 +673,7 @@ app.controller('DoctorRe',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Specialization'
+        url: baseurl + '/Doctor/Specialization'
     })
     .then(function (response){
         if (response.status == 200){
@@ -692,75 +693,107 @@ app.controller('DoctorRe',function($scope,$http){
 
 
     $scope.dores = function(){
-        if ($scope.pass1 != $scope.cpass){
+
+        if(
+            $scope.fname == undefined ||
+            $scope.lname == undefined ||
+            $scope.Uname == undefined ||
+            $scope.dob == undefined ||
+            $scope.email == undefined ||
+            $scope.pass1 == undefined ||
+            $scope.cpass == undefined ||
+            $scope.phone == undefined ||
+            $scope.gen == undefined ||
+            $scope.govid == undefined ||
+            $scope.govnum == undefined ||
+            $scope.add == undefined ||
+            $scope.qualification == undefined ||
+            $scope.specialty == undefined ||
+            $scope.experience == undefined ||
+            $scope.city == undefined ||
+            $scope.state == undefined ||
+            $scope.country == undefined ||
+            $scope.pin == undefined
+        ){
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Password Mismatch....',
+                icon:'warning',
+                title:'EMPTY FIELD !!!!'
             })
         }
+
         else{
-
-            var day = document.getElementById('dob').value
-            
-            
-
-            var dore = {
-                'First_Name':$scope.fname,
-                'Last_Name':$scope.lname,
-                'Username':$scope.Uname,
-                'DOB':day,
-                'Email':$scope.email,
-                'Password':$scope.pass1,
-                'C_Password':$scope.cpass,
-                'Mobile_Number':$scope.phone,
-                'Gender':$scope.gen,
-                'Government_ID':$scope.govid,
-                'Gov_ID_Number':$scope.govnum,
-                'Height':$scope.height,
-                'Weight':$scope.weight,
-                'Blood_Group':$scope.blood,
-                'Qualification':$scope.qualification,
-                'Speciality':$scope.specialty,
-                'Experience':$scope.experience,
-                'Previously_Working_at':$scope.working,
-                'Address':$scope.add,
-                'City':$scope.city,
-                'State':$scope.state,
-                'Country':$scope.country,
-                'Pincode': $scope.pin,
-                'Appointment_fees':$scope.feesss
-
-
-            };
-
-            $http({
-                method:'POST',
-                url:'http://10.21.84.38:8000/Doctor/registration',
-                data:dore
-            })
-            .then(function (response){
-                    
-            if (response.status == 200){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Great...',
-                    text: 'Resgistration Successfull...',
-                    footer: '<a href="">Need any Help</a>'
-                })
-            }
-                
-                        
-            })
-            .catch((error) => {
+            if ($scope.pass1 != $scope.cpass){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: error.data.message,
+                    text: 'Password Mismatch....',
                 })
-            })
-
+            }
+            else{
+    
+                var day = document.getElementById('dob').value
+                
+                
+    
+                var dore = {
+                    'First_Name':$scope.fname,
+                    'Last_Name':$scope.lname,
+                    'Username':$scope.Uname,
+                    'DOB':day,
+                    'Email':$scope.email,
+                    'Password':$scope.pass1,
+                    'C_Password':$scope.cpass,
+                    'Mobile_Number':$scope.phone,
+                    'Gender':$scope.gen,
+                    'Government_ID':$scope.govid,
+                    'Gov_ID_Number':$scope.govnum,
+                    'Height':$scope.height,
+                    'Weight':$scope.weight,
+                    'Blood_Group':$scope.blood,
+                    'Qualification':$scope.qualification,
+                    'Speciality':$scope.specialty,
+                    'Experience':$scope.experience,
+                    'Previously_Working_at':$scope.working,
+                    'Address':$scope.add,
+                    'City':$scope.city,
+                    'State':$scope.state,
+                    'Country':$scope.country,
+                    'Pincode': $scope.pin,
+                    'Appointment_fees':$scope.feesss
+    
+    
+                };
+    
+                $http({
+                    method:'POST',
+                    url: baseurl + '/Doctor/registration',
+                    data:dore
+                })
+                .then(function (response){
+                        
+                if (response.status == 200){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Great...',
+                        text: 'Resgistration Successfull...',
+                        footer: '<a href="">Need any Help</a>'
+                    })
+                }
+                    
+                            
+                })
+                .catch((error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: error.data.message,
+                    })
+                })
+    
+            }
         }
+
+        
     }
 });
 
@@ -786,8 +819,8 @@ app.controller('patient-dashboard',function($scope,$rootScope,$window,$http,$loc
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/home',
-            data:token
+            url: baseurl + '/Patient/home',
+            data:token        
         })
         .then(function (response){
             if (response.status == 200){
@@ -801,7 +834,7 @@ app.controller('patient-dashboard',function($scope,$rootScope,$window,$http,$loc
 
                 $http({
                     method:'POST',
-                    url:'http://10.21.84.38:8000/Patient/Doctors'
+                    url: baseurl + '/Patient/Doctors'
                 })
                 .then(function (response){
                     if (response.status == 200){
@@ -833,7 +866,7 @@ app.controller('patient-dashboard',function($scope,$rootScope,$window,$http,$loc
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/logout',
+            url: baseurl + '/Patient/logout',
             data:token
         })
         .then(function (response){
@@ -867,7 +900,7 @@ app.controller('appointment',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Disease',
+        url: baseurl + '/Patient/Disease',
     })
     .then(function (response){
         if (response.status == 200){
@@ -891,7 +924,7 @@ app.controller('appointment',function($scope,$http){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/Appointment/Doctors',
+                url: baseurl + '/Patient/Appointment/Doctors',
                 data:spe
             })
             .then(function (response){
@@ -926,7 +959,7 @@ app.controller('appointment',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Doctor/Speciality'
+        url: baseurl + '/Receptionist/Doctor/Speciality'
     })
     .then(function(response){
         $scope.spee = response.data.Spe
@@ -957,7 +990,7 @@ app.controller('appointment',function($scope,$http){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/Appointment/Doctor/Fees',
+                url: baseurl + '/Patient/Appointment/Doctor/Fees',
                 data:docid
             })
             .then(function (response){
@@ -999,7 +1032,7 @@ app.controller('appointment',function($scope,$http){
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/Appointment',
+            url: baseurl + '/Patient/Appointment',
             data:apdata
         })
         .then(function (response){
@@ -1031,7 +1064,7 @@ app.controller('p-appointment',function($rootScope,$http,$scope){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Appointment/History',
+        url: baseurl + '/Patient/Appointment/History',
         data:pdata
     })
     .then(function (response){
@@ -1078,7 +1111,7 @@ app.controller('p-appointment',function($rootScope,$http,$scope){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/App/Update',
+                url: baseurl + '/Patient/App/Update',
                 data:upadteid
             })
             .then(function (response){
@@ -1114,7 +1147,7 @@ app.controller('p-appointment',function($rootScope,$http,$scope){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/Appointment/Payment',
+            url: baseurl + '/Patient/Appointment/Payment',
             data:iiddd
         })
         .then(function (response){
@@ -1151,7 +1184,7 @@ app.controller('p-history',function($http,$scope){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Payment/History',
+        url: baseurl + '/Patient/Payment/History',
         data:pay
     })
     .then(function (response){
@@ -1184,7 +1217,7 @@ app.controller('p-history',function($http,$scope){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/Payment/Receipt',
+            url: baseurl + '/Patient/Payment/Receipt',
             data:p
         })
         .then(function (response){
@@ -1236,7 +1269,7 @@ app.controller('p-profile',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/home',
+        url: baseurl + '/Patient/home',
         data:token
     })
     .then(function (response){
@@ -1300,7 +1333,7 @@ app.controller('p-profile',function($scope,$http){
     
                 $http({
                     method:'POST',
-                    url:'http://10.21.84.38:8000/Patient/Pass/Change',
+                    url: baseurl + '/Patient/Pass/Change',
                     data:passchan
                 })
                 .then(function(response){
@@ -1352,7 +1385,7 @@ app.controller('doctor-dashboard',function($scope,$http,$window,$state,$location
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Appointment/Notification',
+            url: baseurl + '/Doctor/Appointment/Notification',
             data:token
         })
         .then(function (response){
@@ -1372,7 +1405,7 @@ app.controller('doctor-dashboard',function($scope,$http,$window,$state,$location
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Patients',
+            url: baseurl + '/Doctor/Patients',
             data:token
         })
         .then(function (response){
@@ -1385,7 +1418,7 @@ app.controller('doctor-dashboard',function($scope,$http,$window,$state,$location
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/home',
+            url: baseurl + '/Doctor/home',
             data:token
         })
         .then(function (response){
@@ -1416,8 +1449,7 @@ app.controller('doctor-dashboard',function($scope,$http,$window,$state,$location
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/logout',
-            data:token
+            url: 'https://10.21.84.241:8000' + '/Drive/logout'
         })
         .then(function (response){
             if (response.status == 200){
@@ -1458,7 +1490,7 @@ app.controller('doc-pa-appointment',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Appointment/Notification',
+        url: baseurl + '/Doctor/Appointment/Notification',
         data:token
     })
     .then(function (response){
@@ -1502,7 +1534,7 @@ app.controller('doc-pa-appointment',function($scope,$http){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Doctor/Appointment/Status',
+                url: baseurl + '/Doctor/Appointment/Status',
                 data:rej
             })
             .then(function (response){
@@ -1539,7 +1571,7 @@ app.controller('doc-pa-appointment',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Appointment/Status',
+            url: baseurl + '/Doctor/Appointment/Status',
             data:appro
         })
         .then(function (response){
@@ -1576,11 +1608,12 @@ app.controller('alloted-patient',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Patients',
+        url: baseurl + '/Doctor/Patients',
         data:token
     })
     .then(function (response){
         if (response.status == 200){
+            console.log(response)
             if(response.data.Patient_detail.length == 0){
                 document.getElementById('allopa').style.display = 'block';
                 document.getElementById('allopa').innerHTML = response.data.message;
@@ -1598,6 +1631,32 @@ app.controller('alloted-patient',function($scope,$http){
             title: error.data.message
         })
     })
+
+
+
+    $scope.docpaview = function(id){
+        var paid = {
+            'id':id
+        }
+        console.log(paid)
+        $http({
+            method:'POST',
+            url: baseurl + '/Receptionist/Patient/Detail',
+            data:paid
+        })
+        .then(function(response){
+            console.log(response)
+            $scope.padat = response.data.Patient_detail;
+        })
+        .catch(function(error){
+            Swal.fire({
+                icon: 'error',
+                title: error.data.message
+            })
+        })
+    }
+
+
 })
 
 
@@ -1608,7 +1667,7 @@ app.controller('Doctor-profile',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/home',
+        url: baseurl + '/Doctor/home',
         data:token
     })
     .then(function(response){
@@ -1634,6 +1693,16 @@ app.controller('Doctor-profile',function($scope,$http){
             $scope.experience = response.data.Doctor_detail.Experience;
             $scope.Speciality = response.data.Doctor_detail.Speciality;
 
+
+
+            var dob = new Date(response.data.Doctor_detail.DOB);  
+            var month_diff = Date.now() - dob.getTime();  
+            var age_dt = new Date(month_diff);   
+
+            var year = age_dt.getUTCFullYear(); 
+
+            var age = Math.abs(year - 1970);  
+            $scope.ag = age;
         }   
     })
     .catch(function(error){
@@ -1642,6 +1711,60 @@ app.controller('Doctor-profile',function($scope,$http){
             title: error.data.message
         })
     })
+
+
+    $scope.changedocpassword = function(){
+        if(
+            $scope.currpass == undefined ||
+            $scope.newpass == undefined ||
+            $scope.confpass == undefined
+        ){
+            Swal.fire({
+                icon: 'warning',
+                title: 'EMPTY FIELD !!!!'
+            })
+        }
+        else{
+            if($scope.newpass != $scope.confpass){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'PASSWORD MISMATCH !!!!'
+                })
+            }
+            else{
+                var passchan = {
+                    'Token':list[0],
+                    'Previous_Password':$scope.currpass,
+                    'Password':$scope.newpass,
+                    'C_Password':$scope.confpass
+                }
+    
+                $http({
+                    method:'POST',
+                    url: baseurl + '/Doctor/Pass/Change',
+                    data:passchan
+                })
+                .then(function(response){
+                    Swal.fire({
+                        icon: 'success',
+                        title: response.data.message
+                    })
+                    .then(function(){
+                        passchange.reset()
+                    })
+                })
+                .catch(function(error){
+                    Swal.fire({
+                        icon: 'error',
+                        title: error.data.message
+                    })
+                })
+            }
+            
+        }
+    }
+
+
     
 });
 
@@ -1654,7 +1777,7 @@ app.controller('approved-patient',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Appointments',
+        url: baseurl + '/Doctor/Appointments',
         data:token
     })
     .then(function (response){
@@ -1701,7 +1824,7 @@ app.controller('approved-patient',function($scope,$http){
         
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Patient/Detail',
+            url: baseurl + '/Doctor/Patient/Detail',
             data:get
         })
         .then(function (response){
@@ -1758,7 +1881,7 @@ app.controller('approved-patient',function($scope,$http){
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Patient/Prescription',
+            url: baseurl + '/Doctor/Patient/Prescription',
             data:generate
         })
         .then(function (response){
@@ -1817,7 +1940,7 @@ app.controller('doc-book-app',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Appointment/patient',
+        url: baseurl + '/Doctor/Appointment/patient',
         data:docapbo
     })
     .then(function (response){
@@ -1839,7 +1962,7 @@ app.controller('doc-book-app',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Disease',
+        url: baseurl + '/Patient/Disease',
     })
     .then(function (response){
         if (response.status == 200){
@@ -1863,7 +1986,7 @@ app.controller('doc-book-app',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Appointment/patient/gender',
+            url: baseurl + '/Doctor/Appointment/patient/gender',
             data:forgen
         })
         .then(function (response){
@@ -1896,7 +2019,7 @@ app.controller('doc-book-app',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Book/Appointment',
+            url: baseurl + '/Doctor/Book/Appointment',
             data:docapp
         })
         .then(function (response){
@@ -1932,7 +2055,7 @@ app.controller('p-prescription',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Prescription/det',
+        url: baseurl + '/Patient/Prescription/det',
         data:padata
     })
     .then(function (response){
@@ -1965,7 +2088,7 @@ app.controller('p-prescription',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Patient/Prescription',
+            url: baseurl + '/Patient/Prescription',
             data:shpres
         })
         .then(function (response){
@@ -2023,7 +2146,7 @@ app.controller('visited-pa',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Doctor/Previous/Appointment',
+        url: baseurl + '/Doctor/Previous/Appointment',
         data:token
     })
     .then(function (response){
@@ -2057,7 +2180,7 @@ app.controller('visited-pa',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Doctor/Previous/Patient/Prescription',
+            url: baseurl + '/Doctor/Previous/Patient/Prescription',
             data:shpres
         })
         .then(function (response){
@@ -2119,7 +2242,7 @@ app.controller('Receptionist-dashboard',function($scope,$http,$state){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/home',
+        url: baseurl + '/Receptionist/home',
         data:reda
     })
     .then(function(response){
@@ -2136,7 +2259,7 @@ app.controller('Receptionist-dashboard',function($scope,$http,$state){
     
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Doctor/View',
+        url: baseurl + '/Receptionist/Doctor/View',
         data:reda
     })
     .then(function(response){
@@ -2152,7 +2275,7 @@ app.controller('Receptionist-dashboard',function($scope,$http,$state){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Patient/View',
+        url: baseurl + '/Receptionist/Patient/View',
         data:reda
     })
     .then(function(response){
@@ -2168,7 +2291,7 @@ app.controller('Receptionist-dashboard',function($scope,$http,$state){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Notification',
+        url: baseurl + '/Receptionist/Notification',
         data:reda
     })
     .then(function(response){
@@ -2207,7 +2330,7 @@ app.controller('re-ap-book',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Disease',
+        url: baseurl + '/Patient/Disease',
     })
     .then(function (response){
         if (response.status == 200){
@@ -2226,7 +2349,7 @@ app.controller('re-ap-book',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Doctor/Speciality'
+        url: baseurl + '/Receptionist/Doctor/Speciality'
     })
     .then(function(response){
         $scope.spee = response.data.Spe
@@ -2258,7 +2381,7 @@ app.controller('re-ap-book',function($scope,$http){
             }
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/Appointment/Doctors',
+                url: baseurl + '/Patient/Appointment/Doctors',
                 data:spe
             })
             .then(function (response){
@@ -2294,7 +2417,7 @@ app.controller('re-ap-book',function($scope,$http){
             idd = docid.id;
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Patient/Appointment/Doctor/Fees',
+                url: baseurl + '/Patient/Appointment/Doctor/Fees',
                 data:docid
             })
             .then(function (response){
@@ -2324,7 +2447,7 @@ app.controller('re-ap-book',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/App/Patient',
+        url: baseurl + '/Receptionist/App/Patient',
         data:rede
     })
     .then(function (response){
@@ -2351,7 +2474,7 @@ app.controller('re-ap-book',function($scope,$http){
         idp = $scope.pa;
         $http({
             method:'POST',
-            url: 'http://10.21.84.38:8000/Receptionist/Patient/Gender',
+            url: baseurl + '/Receptionist/Patient/Gender',
             data:fgen
         })
         .then(function(response){
@@ -2382,7 +2505,7 @@ app.controller('re-ap-book',function($scope,$http){
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Add/Appointment',
+            url: baseurl + '/Receptionist/Add/Appointment',
             data:reapdata
         })
         .then(function(response){
@@ -2416,7 +2539,7 @@ app.controller('re-profile',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/home',
+        url: baseurl + '/Receptionist/home',
         data:prod
     })
     .then(function (response){
@@ -2459,7 +2582,7 @@ app.controller('re-pending-ap',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Notification',
+        url: baseurl + '/Receptionist/Notification',
         data:repen
     })
     .then(function(response){
@@ -2493,7 +2616,7 @@ app.controller('re-pending-ap',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Appointment',
+            url: baseurl + '/Receptionist/Appointment',
             data:fgdat
         })
         .then(function(response){
@@ -2522,7 +2645,7 @@ app.controller('re-pending-ap',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Appointment',
+            url: baseurl + '/Receptionist/Appointment',
             data:fgdat
         })
         .then(function(response){
@@ -2551,7 +2674,7 @@ app.controller('doctor-database',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Doctor/View',
+        url: baseurl + '/Receptionist/Doctor/View',
         data:redocdata
     })
     .then(function(response){
@@ -2566,7 +2689,7 @@ app.controller('doctor-database',function($scope,$http){
 
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Doctor/Speciality'
+        url: baseurl + '/Receptionist/Doctor/Speciality'
     })
     .then(function(response){
         $scope.seasp = response.data.Spe
@@ -2585,7 +2708,7 @@ app.controller('doctor-database',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Doctor/Detail',
+            url: baseurl + '/Receptionist/Doctor/Detail',
             data:vido
         })
         .then(function(response){
@@ -2606,7 +2729,7 @@ app.controller('doctor-database',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Patient/Doc/Detail',
+            url: baseurl + '/Receptionist/Patient/Doc/Detail',
             data:vipa
         })
         .then(function(response){
@@ -2628,7 +2751,7 @@ app.controller('Patient-database',function($scope,$http){
     }
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Receptionist/Patient/View',
+        url: baseurl + '/Receptionist/Patient/View',
         data:repadata
     })
     .then(function(response){
@@ -2647,7 +2770,7 @@ app.controller('Patient-database',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Patient/Detail',
+            url: baseurl + '/Receptionist/Patient/Detail',
             data:paid
         })
         .then(function(response){
@@ -2668,7 +2791,7 @@ app.controller('Patient-database',function($scope,$http){
         console.log(apd)
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Patient/Pre/Appointment',
+            url:baseurl + '/Receptionist/Patient/Pre/Appointment',
             data:apd
         })
         .then(function(response){
@@ -2703,7 +2826,7 @@ app.controller('Patient-database',function($scope,$http){
         }
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Patient/Delete',
+            url: baseurl + '/Receptionist/Patient/Delete',
             data:del
         })
         .then(function(response){
@@ -2738,7 +2861,7 @@ app.controller('report',function($scope,$http){
     configdate();
     $http({
         method:'POST',
-        url:'http://10.21.84.38:8000/Patient/Disease',
+        url: baseurl + '/Patient/Disease',
     })
     .then(function (response){
         if (response.status == 200){
@@ -2765,7 +2888,7 @@ app.controller('report',function($scope,$http){
 
         $http({
             method:'POST',
-            url:'http://10.21.84.38:8000/Receptionist/Patient/App/Date',
+            url: baseurl + '/Receptionist/Patient/App/Date',
             data:datee
         })
         .then(function (response){
@@ -2808,7 +2931,7 @@ app.controller('report',function($scope,$http){
     
             $http({
                 method:'POST',
-                url:'http://10.21.84.38:8000/Receptionist/Disease/Patient',
+                url: baseurl + '/Receptionist/Disease/Patient',
                 data:disea
             })
             .then(function (response){

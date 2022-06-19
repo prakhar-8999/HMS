@@ -26,16 +26,19 @@
                     <div class="form-outline mb-4">
                       <label for="username" class="form-label"><strong>USERNAME <b>*</b></strong></label>
                       <!-- <label class="form-label" for="username">Email address</label> -->
-                      <input type="text" id="username" ng-model="patientuser" class="form-control form-control-lg">
+                      <input type="text" id="username" name="patientuser" ng-model="patientuser" class="form-control form-control-lg" required>
                     </div>
                     
                     <div class="form-outline mb-4">
                       <label class="form-label" for="password"><strong>PASSWORD <b>*</b></strong></label>
-                      <input type="password" id="password" ng-model="patientpass" class="form-control form-control-lg">
+                      <input type="password" id="password" name="patientpass" ng-model="patientpass" class="form-control form-control-lg" required>
                     </div>
+                    <br>
+                    <!-- <h1>{{lofom.patientuser.$valid && lofom.patientpass.$valid}}</h1> -->
+
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                      <button class="btn btn-dark btn-lg btn-block" style="width: 100%;" ng-disabled="!(lofom.patientuser.$valid && lofom.patientpass.$valid)" type="submit">Login</button>
                     </div>
 
                   </form>

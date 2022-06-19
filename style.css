@@ -147,6 +147,16 @@ b{
 
 
 
+/* input.ng-touched.ng-invalid {
+    border-color:red;
+    border-width: 2px;
+}
+
+input.ng-touched.ng-valid {
+    border-color:green;
+    border-width: 2px;
+} */
+
 
 
 

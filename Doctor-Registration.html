@@ -10,7 +10,7 @@
               <!-- </div> -->
               <div>
                 <div class="card-body p-md-5 text-black">
-                    <img style="width: 60%;" src="images/logo.png" alt="">
+                    <img style="width: 45%;" src="images/logo.png" alt="logo">
                     <br><br><br>
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; font-size: 30px;">Doctor's Registration</h5>
                     <br>
@@ -21,13 +21,13 @@
                             <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label for="fname" class="form-label"><strong>FIRST NAME<b>*</b></strong></label>
-                                <input type="text" id="fname" ng-model="fname" class="form-control form-control-lg" required>
+                                <input type="text" id="fname" ng-model="fname" class="form-control form-control-lg"  >
                             </div>
                             </div>
                             <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label for="lname" class="form-label"><strong>LAST NAME <b>*</b></strong></label>
-                                <input type="text" id="lname" ng-model="lname" class="form-control form-control-lg" required>
+                                <input type="text" id="lname" ng-model="lname" class="form-control form-control-lg"  >
                             </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label for="Uname" class="form-label"><strong>USERNAME <b>*</b></strong></label>
-                                    <input type="text" class="form-control form-control-lg" ng-model="Uname" id="Uname" required>
+                                    <input type="text" class="form-control form-control-lg" ng-model="Uname" id="Uname"  >
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
@@ -51,7 +51,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label for="email" class="form-label"><strong>EMAIL <b>*</b></strong></label>
-                                    <input type="email" class="form-control form-control-lg" ng-model="email" id="email" required>
+                                    <input type="email" class="form-control form-control-lg" ng-model="email" id="email"  >
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
@@ -67,8 +67,8 @@
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label for="Gov-id" class="form-label"><strong>GOVERNMENT ID <b>*</b></strong></label>
-                                    <select name="Gov-id" id="Gov-id" ng-model="govid" class="form-control form-control-lg" required>
-                                        <option value="">Select</option>
+                                    <select name="Gov-id" id="Gov-id" ng-model="govid" class="form-control form-control-lg"  >
+                                        <option value="" disabled>Select</option>
                                         <option value="AADHAR">AADHAR CARD</option>
                                         <option value="PAN">PAN CARD</option>
                                         <option value="VOTER ID">VOTER ID CARD</option>
@@ -80,7 +80,7 @@
                             <div class="col-md-6 mb-4">
                             <div class="form-outline">
                                 <label for="govnum" class="form-label"><strong>GOVERNMENT ID NO. <b>*</b></strong></label>
-                                <input type="text" class="form-control form-control-lg" ng-model="govnum" id="govnum" required>
+                                <input type="text" class="form-control form-control-lg" ng-model="govnum" id="govnum"  >
                             </div>
                             </div>
                         </div>
@@ -97,8 +97,8 @@
                             <div class="col-md-3 mb-4">
                                 <div class="form-outline">
                                     <label for="gen" class="form-label"><strong>GENDER <b>*</b></strong></label>
-                                    <select name="gen" id="gen" ng-model="gen" class="form-control form-control-lg" required>
-                                        <option value="">Select</option>
+                                    <select name="gen" id="gen" ng-model="gen" class="form-control form-control-lg"  >
+                                        <option value="" disabled>Select</option>
                                         <option value="MALE">MALE</option>
                                         <option value="FEMALE">FEMALE</option>
                                         <option value="OTHERS">OTHERS</option>
@@ -119,7 +119,7 @@
                                 <div class="form-outline">
                                     <label for="weight" class="form-label"><strong>WEIGHT <b>*</b></strong></label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control form-control-lg" min="0" ng-model="weight" id="weight" required>
+                                        <input type="number" class="form-control form-control-lg" min="0" ng-model="weight" id="weight"  >
                                         <div class="input-group-text">kg</div>
                                     </div>
                                     
@@ -129,7 +129,7 @@
                                 <div class="form-outline">
                                     <label for="blood" class="form-label"><strong>BLOOD GROUP</strong></label>
                                     <select name="blood" id="blood" ng-model="blood" class="form-control form-control-lg">
-                                        <option value="">Select</option>
+                                        <option value="" disabled>Select</option>
                                         <option value="B+">B+</option>
                                         <option value="B-">B-</option>
                                         <option value="A+">A+</option>
@@ -150,9 +150,9 @@
                             <div class="col-md-4 mb-4">
                                 <div class="form-outline">
                                     <label for="qualification" class="form-label"><strong>QUALIFICATION <b>*</b></strong></label>
-                                    <!-- <input type="text" class="form-control form-control-lg" ng-model="qualification" id="qualification" required> -->
-                                    <select name="qualification" id="qualification" ng-model="qualification" class="form-control form-control-lg" required>
-                                        <option value="">Select</option>
+                                    <!-- <input type="text" class="form-control form-control-lg" ng-model="qualification" id="qualification"  > -->
+                                    <select name="qualification" id="qualification" ng-model="qualification" class="form-control form-control-lg"  >
+                                        <option value="" disabled>Select</option>
                                         <option value="MBBS">MBBS</option>
                                         <option value="BDS">BDS</option>
                                         <option value="BAMS">BAMS</option>
@@ -166,9 +166,9 @@
                             <div class="col-md-4 mb-4">
                                 <div class="form-outline">
                                     <label for="specialty" class="form-label"><strong>SPECIALITY <b>*</b></strong></label>
-                                    <!-- <input type="text" class="form-control form-control-lg" ng-model="specialty" id="specialty" required> -->
-                                    <select name="specialty" id="specialty" ng-model="specialty" class="form-control form-control-lg" required>
-                                        <option value="">Select</option>
+                                    <!-- <input type="text" class="form-control form-control-lg" ng-model="specialty" id="specialty"  > -->
+                                    <select name="specialty" id="specialty" ng-model="specialty" class="form-control form-control-lg"  >
+                                        <option value="" disabled>Select</option>
                                         <option value={{spec.Spec}} ng-repeat="spec in Special">{{spec.Spec}}</option>
                                     </select>
                                 </div>
@@ -177,7 +177,7 @@
                                 <div class="form-outline">
                                     <label for="experience" class="form-label"><strong>EXPERIENCE <b>*</b></strong></label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control form-control-lg" min="0" max="100" ng-model="experience" id="experience" required>
+                                        <input type="number" class="form-control form-control-lg" min="0" max="100" ng-model="experience" id="experience"  >
                                         <div class="input-group-text">Years</div>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@
                             <div class="col-sm-4">
                                 <label for="feesss" class="form-label"><strong>APPOINTMENT FEES</strong></label>
                                 <div class="input-group">
-                                    <input type="number" id="feesss" ng-model="feesss" min="1" class="form-control form-control-lg" required>
+                                    <input type="number" id="feesss" ng-model="feesss" min="1" class="form-control form-control-lg"  >
                                     <div class="input-group-text">Rs</div>
                                 </div>
                             </div>
@@ -205,8 +205,8 @@
                             <div class="col-md-3 mb-4">
                                 <div class="form-outline">
                                     <label for="country" class="form-label"><strong>COUNTRY <b>*</b></strong></label>
-                                    <select name="country" id="country" ng-model="country" class="form-control form-control-lg" required>
-                                        <option value="">Select</option>
+                                    <select name="country" id="country" ng-model="country" class="form-control form-control-lg"  >
+                                        <option value="" disabled>Select</option>
                                         <option value="INDIA">INDIA</option>
                                     </select>                      
                                 </div>
@@ -214,8 +214,8 @@
                             <div class="col-md-3 mb-4">
                             <div class="form-outline">
                                 <label for="state" class="form-label"><strong>STATE <b>*</b></strong></label>
-                                <select name="state" id="state" ng-model="state" class="form-control form-control-lg" required>
-                                    <option value="">Select</option>
+                                <select name="state" id="state" ng-model="state" class="form-control form-control-lg"  >
+                                    <option value="" disabled>Select</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -258,13 +258,13 @@
                             <div class="col-md-3 mb-4">
                                 <div class="form-outline">
                                     <label for="city" class="form-label"><strong>CITY <b>*</b></strong></label>
-                                    <input type="text" class="form-control form-control-lg" ng-model="city" id="city" required>
+                                    <input type="text" class="form-control form-control-lg" ng-model="city" id="city"  >
                                 </div>
                             </div>
                             <div class="col-md-3 mb-4">
                                 <div class="form-outline">
                                     <label for="pin" class="form-label"><strong>PINCODE <b>*</b></strong></label>
-                                    <input type="number" class="form-control form-control-lg" min="100000" max="999999" ng-model="pin" id="pin" required>
+                                    <input type="number" class="form-control form-control-lg" min="100000" max="999999" ng-model="pin" id="pin"  >
                                 </div>
                             </div>
                         </div>
@@ -275,13 +275,13 @@
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label for="pass1" class="form-label"><strong>PASSWORD <b>*</b></strong></label>
-                                    <input type="password" class="form-control form-control-lg" ng-model="pass1" id="pass1" required>
+                                    <input type="password" class="form-control form-control-lg" ng-model="pass1" id="pass1"  >
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="form-outline">
                                     <label for="cpass" class="form-label"><strong>CONFIRM PASSWORD <b>*</b></strong></label>
-                                    <input type="password" class="form-control form-control-lg" ng-model="cpass" id="cpass" required>
+                                    <input type="password" class="form-control form-control-lg" ng-model="cpass" id="cpass"  >
                                 </div>
                             </div>
                         </div>

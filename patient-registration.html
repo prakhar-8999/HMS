@@ -13,7 +13,7 @@
                     <div class="d-flex align-items-center mb-3 pb-1">
                         
                         <img style="width: 70%;" src="images/logo.png" alt="logo">
-                    </div>
+                    </div> 
                     <br>
                     <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your account</h4>
                     <br>
@@ -24,12 +24,13 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="fname" class="form-label"><strong>FIRST NAME<b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="fname" id="fname" pattern='[A-Za-z\\s]*' required>
-                                
+                                <input type="text" class="form-control" ng-model="fname" id="fname" pattern='[A-Za-z\\s]*' ng-required="true">
+                                <span ng-show="{{myfom.fname.$touched && myfom.fname.$error.required}}">First name is required.</span>
+
                             </div>
                             <div class="col-sm-6">
                                 <label for="lname" class="form-label"><strong>LAST NAME <b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="lname" id="lname" pattern='[A-Za-z\\s]*' required>
+                                <input type="text" class="form-control" ng-model="lname" id="lname" pattern='[A-Za-z\\s]*' ng-required="true" >
         
                             </div>
                         </div>
@@ -39,12 +40,12 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="Uname" class="form-label"><strong>USERNAME <b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="username" id="Uname" required>
+                                <input type="text" class="form-control" ng-model="username" id="Uname"  >
                                 
                             </div>
                             <div class="col-sm-6">
                                 <label for="DOB" class="form-label"><strong>DOB <b>*</b></strong></label>
-                                <input type="date" class="form-control" ng-model="dob" id="DOB" required>
+                                <input type="date" class="form-control" ng-model="dob" id="DOB"  >
                                
                             </div>
                         </div>
@@ -54,18 +55,18 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="email" class="form-label"><strong>EMAIL <b>*</b></strong></label>
-                                <input type="email" class="form-control" ng-model="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                <input type="email" class="form-control" ng-model="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  >
                                
                             </div>
                             <div class="col-sm-3">
                                 <label for="phone" class="form-label"><strong>PHONE <b>*</b></strong></label>
-                                <input type="number" class="form-control" min="1000000000" max="9999999999" ng-model="phone" id="phone" required>
+                                <input type="number" class="form-control" min="1000000000" max="9999999999" ng-model="phone" id="phone"  >
                                 
                             </div>
                             <div class="col-sm-3">
                                 <label for="gen" class="form-label"><strong>GENDER <b>*</b></strong></label>
-                                <select name="gen" id="gen" ng-model="gen" class="form-control" required>
-                                    <option value="">Select</option>
+                                <select name="gen" id="gen" ng-model="gen" class="form-control"  >
+                                    <option value="" disabled>Select</option>
                                     <option value="MALE">MALE</option>
                                     <option value="FEMALE">FEMALE</option>
                                     <option value="OTHERS">OTHERS</option>
@@ -79,13 +80,13 @@
                         <div class="row">
                             <div class="col-sm-10">
                                 <label for="add" class="form-label"><strong>ENTER YOUR FULL ADDRESS <b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="address" id="add" required>
+                                <input type="text" class="form-control" ng-model="address" id="add"  >
                                 
                             </div>
                             <div class="col-sm-2">
                                 <label for="blood" class="form-label"><strong>BLOOD GROUP</strong></label>
                                 <select name="blood" id="blood" ng-model="blood" class="form-control">
-                                    <option value="">Select</option>
+                                    <option value="" disabled>Select</option>
                                     <option value="B+">B+</option>
                                     <option value="B-">B-</option>
                                     <option value="A+">A+</option>
@@ -103,16 +104,16 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="country" class="form-label"><strong>COUNTRY <b>*</b></strong></label>
-                                <select name="country" id="country" ng-model="country" class="form-control" required>
-                                    <option value="">Select</option>
+                                <select name="country" id="country" ng-model="country" class="form-control"  >
+                                    <option value="" disabled>Select</option>
                                     <option value="INDIA">INDIA</option>
                                 </select>
                                
                             </div>
                             <div class="col-sm-3">
                                 <label for="state" class="form-label"><strong>STATE <b>*</b></strong></label>
-                                <select name="state" id="state" ng-model="state" class="form-control" required>
-                                    <option value="">Select</option>
+                                <select name="state" id="state" ng-model="state" class="form-control"  >
+                                    <option value="" disabled>Select</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -154,12 +155,12 @@
                             </div>
                             <div class="col-sm-3">
                                 <label for="city" class="form-label"><strong>CITY <b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="city" id="city" required>
+                                <input type="text" class="form-control" ng-model="city" id="city"  >
                                 
                             </div>
                             <div class="col-sm-3">
                                 <label for="pincode" class="form-label"><strong>PINCODE <b>*</b></strong></label>
-                                <input type="number" class="form-control" min="100000" max="999999" ng-model="pin" id="pincode" required>
+                                <input type="number" class="form-control" min="100000" max="999999" ng-model="pin" id="pincode"  >
                                 
                             </div>
                         </div>
@@ -169,8 +170,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label for="Gov-id" class="form-label"><strong>GOVERNMENT ID <b>*</b></strong></label>
-                                <select name="Gov-id" id="Gov-id" ng-model="govid" class="form-control" required>
-                                    <option value="">Select</option>
+                                <select name="Gov-id" id="Gov-id" ng-model="govid" class="form-control"  >
+                                    <option value="" disabled>Select</option>
                                     <option value="AADHAR">AADHAR CARD</option>
                                     <option value="PAN">PAN CARD</option>
                                     <option value="VOTER ID">VOTER ID CARD</option>
@@ -181,7 +182,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="govnum" class="form-label"><strong>GOVERNMENT ID NO. <b>*</b></strong></label>
-                                <input type="text" class="form-control" ng-model="govnum" id="govnum" required>
+                                <input type="text" class="form-control" ng-model="govnum" id="govnum"  >
                                 
                             </div>
                         </div>
@@ -217,12 +218,12 @@
                             </div>
                             <div class="col-sm-4">
                                 <label for="pass" class="form-label"><strong>PASSWORD <b>*</b></strong></label>
-                                <input type="password" class="form-control" ng-model="pass1" id="pass" required>
+                                <input type="password" class="form-control" ng-model="pass1" id="pass"  >
                                 
                             </div>
                             <div class="col-sm-4">
                                 <label for="cpass" class="form-label"><strong>CONFIRM PASSWORD <b>*</b></strong></label>
-                                <input type="password" class="form-control" ng-model="pass2" id="cpass" required>
+                                <input type="password" class="form-control" ng-model="pass2" id="cpass"  >
                                 
                             </div>
                         </div>
