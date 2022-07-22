@@ -1,5 +1,5 @@
 var app = angular.module('app',['ui.router']);
-const baseurl = 'https://a489-103-77-186-50.in.ngrok.io'
+const baseurl = 'https://hmsmodule.herokuapp.com/'
 app.config(['$stateProvider','$urlRouterProvider',function($stateProvider){
     $stateProvider
     .state('1',{
